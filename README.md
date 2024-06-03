@@ -1,4 +1,4 @@
-# 「5月31日」最高速度19.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接  更新时间 2024-05-31 10:44:43
+# 「6月3日」最高速度20.7M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接  更新时间 2024-06-03 10:25:11
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://nexthiddify.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,19 +9,19 @@
 
 ### Clash订阅链接
 
-- https://nexthiddify.github.io/uploads/2024/05/0-20240531.yaml
-- https://nexthiddify.github.io/uploads/2024/05/1-20240531.yaml
-- https://nexthiddify.github.io/uploads/2024/05/2-20240531.yaml
-- https://nexthiddify.github.io/uploads/2024/05/3-20240531.yaml
-- https://nexthiddify.github.io/uploads/2024/05/4-20240531.yml
+- https://nexthiddify.github.io/uploads/2024/06/0-20240603.yaml
+- https://nexthiddify.github.io/uploads/2024/06/1-20240603.yaml
+- https://nexthiddify.github.io/uploads/2024/06/2-20240603.yaml
+- https://nexthiddify.github.io/uploads/2024/06/3-20240603.yaml
+- https://nexthiddify.github.io/uploads/2024/06/4-20240603.yml
 
 ### V2ray订阅链接
 
-- https://nexthiddify.github.io/uploads/2024/05/0-20240531.txt
-- https://nexthiddify.github.io/uploads/2024/05/1-20240531.txt
-- https://nexthiddify.github.io/uploads/2024/05/2-20240531.txt
-- https://nexthiddify.github.io/uploads/2024/05/3-20240531.txt
-- https://nexthiddify.github.io/uploads/2024/05/4-20240531.txt
+- https://nexthiddify.github.io/uploads/2024/06/0-20240603.txt
+- https://nexthiddify.github.io/uploads/2024/06/1-20240603.txt
+- https://nexthiddify.github.io/uploads/2024/06/2-20240603.txt
+- https://nexthiddify.github.io/uploads/2024/06/3-20240603.txt
+- https://nexthiddify.github.io/uploads/2024/06/4-20240603.txt
 
 ## 更多clash节点订阅 ：
 
