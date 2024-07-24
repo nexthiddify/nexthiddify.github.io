@@ -1,4 +1,4 @@
-# 「7月22日」最高速度19.5M/S，2024年Hiddify Next每天更新免费节点订阅链接  更新时间 2024-07-22 10:28:48
+# 「7月24日」最高速度23M/S，2024年Hiddify Next每天更新免费节点订阅链接  更新时间 2024-07-24 11:18:08
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://nexthiddify.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,19 +9,19 @@
 
 ### Clash订阅链接
 
-- https://nexthiddify.github.io/uploads/2024/07/0-20240722.yaml
-- https://nexthiddify.github.io/uploads/2024/07/1-20240722.yaml
-- https://nexthiddify.github.io/uploads/2024/07/2-20240722.yaml
-- https://nexthiddify.github.io/uploads/2024/07/3-20240722.yaml
-- https://nexthiddify.github.io/uploads/2024/07/4-20240722.yml
+- https://nexthiddify.github.io/uploads/2024/07/0-20240724.yaml
+- https://nexthiddify.github.io/uploads/2024/07/1-20240724.yaml
+- https://nexthiddify.github.io/uploads/2024/07/2-20240724.yaml
+- https://nexthiddify.github.io/uploads/2024/07/3-20240724.yaml
+- https://nexthiddify.github.io/uploads/2024/07/4-20240724.yml
 
 ### V2ray订阅链接
 
-- https://nexthiddify.github.io/uploads/2024/07/0-20240722.txt
-- https://nexthiddify.github.io/uploads/2024/07/1-20240722.txt
-- https://nexthiddify.github.io/uploads/2024/07/2-20240722.txt
-- https://nexthiddify.github.io/uploads/2024/07/3-20240722.txt
-- https://nexthiddify.github.io/uploads/2024/07/4-20240722.txt
+- https://nexthiddify.github.io/uploads/2024/07/0-20240724.txt
+- https://nexthiddify.github.io/uploads/2024/07/1-20240724.txt
+- https://nexthiddify.github.io/uploads/2024/07/2-20240724.txt
+- https://nexthiddify.github.io/uploads/2024/07/3-20240724.txt
+- https://nexthiddify.github.io/uploads/2024/07/4-20240724.txt
 
 ## 更多clash节点订阅 ：
 
