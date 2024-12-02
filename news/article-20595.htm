@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-20595.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Spring IOC Bean 创建的整体流程</title>
+        <meta name="description" content="Spring IOC 中涉及的重要接口   BeanDefinitionBean的描述信息，实现类包括RootBeanDefinition 和GenericBeanDefinition，Bean的描述" />
+        <link rel="icon" href="__ADDON__/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                                                        <a class="navbar-brand" href="/">Hiddify Next节点分享</a>
+                                                    </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Spring IOC Bean 创建的整体流程</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                  				  				  				<h3 id="spring-ioc-中涉及的重要接口"><code>Spring IOC</code> 中涉及的重要接口</h3> <ul> <li> <p><code>BeanDefinition</code><br /><code>Bean</code>的描述信息，实现类包括<code>RootBeanDefinition</code> 和<code>GenericBeanDefinition</code>，Bean的描述信息中定义了一系列Bean的信息，比如：<code>beanClassName</code>、<code>scope</code>、<code>lazyinit</code>、<code>dependsOn</code>、<code>primary</code>、<code>initMethodName</code>、<code>destroyMethodName</code>、<code>isSington</code>、<code>isAbstract</code>等信息。</p> </li> <li> <p><code>BeanDefinitionReader</code></p> <p>用于解析<code>Bean</code>的资源阅读器，比如针对于<code>XML</code>文件的配置的<code>Bean</code>，实现类<code>XmlBeanDefinitionReader</code>，针对<code>properties</code>文件的配置的<code>Bean</code>，实现类为<code>PropertiesBeanDefinitionReader</code>，<code>Spring</code>在启动时会将<code>xml</code>文件通过<code>loadBeanDefinitions</code>方法进行解析。</p> </li> <li> <p><code>BeanFactory</code><br /> 是<code>IOC</code>容器实现的顶层接口，默认的实现为<code>DefaultListableBeanFactory</code>，<code>Spring Bean</code> 的整个生命周期都是由<code>DefaultListableBeanFactory</code>去管理的，<strong>这个类非常的重要</strong>。</p> </li> <li> <p><code>BeanFactoryPostProcessor</code></p> <p>这个接口是<code>BeanFactory</code>的增强处理器，用于在<code>Bean</code>加载为<code>BeanDefinition</code>之后的扩展，比如实现类<code>PlaceHolderConfigurerSupport</code> 就是用来处理占位符解析的，当我在<code>xml</code>文件中配置<code>jdbc</code>信息的时候，通过是用<code>${xxx.jdbUrl}</code>这种方式配置数据库连接的时候，就是通过这个类来处理和解析的。</p> </li> <li> <p><code>Aware</code></p> <p>这个接口，他下面有一堆的子接口，比如<code>BeanNameAware</code>、<code>ApplicationContextAware</code>、<code>BeanFactoryAware</code>、<code>EnvironmentAware</code>等，可以通过实现这些接口完成<code>ioc</code>容器中特定信息的设置，比如<code>EnvironmentAware</code>，可以在<code>Bean</code>创建过程中设置环境信息到对应的<code>Bean</code>对象中，后期通过<code>bean</code>对象获取环境信息数据。</p> </li> <li> <p><code>BeanPostProcessor</code></p> <p>这个接口是<code>Bean</code>的增强处理器，用于在<code>Bean</code>进行初始化时调用<code>init-method</code>方法的前后进行增强，他有两个方法：<code>postProcessBeforeInitialization</code>和<code>postProcessAfterInitialization</code>，分别用于<code>bean</code>初始化方法<code>init-method</code>之前和之后调用，当然还可以进行很多扩展，比如<code>aop</code>就是通过<code>postProcessAfterInitialization</code>方法中去创建动态代理对象。</p> </li> </ul> <h3 id="spring-bean-的生命周期"><code>Spring Bean</code> 的生命周期</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/44945d57d34271799345e0fe8e9be72b.jpg" alt="Spring IOC Bean 创建的整体流程"></p> <ul> <li>首先通过BeanDefinitionReader将xml中的Bean配置加载到BeanDefinition中</li> <li>然后将BeanDefinition放入DefaultListableBeanFacotry的beanDefinitionMap和beanDefinitionNames集合中</li> <li>然后调用BeanFactoryPostProcessor#postProcessorBeanFactory对容器中的BeanDefinition的属性进行增强解析</li> <li>然后通过反射调用对象的构造函数进行对象的实例化</li> <li>然后调用populateBean进行属性填充</li> <li>然后调用初始化方法initializeBean，初始化时又会先调用invokeAwareMethods方法执行一堆的Aware方法</li> <li>然后BeanPostProcessor#postProcessBeforeInitialization方法执行bean增强器的前置处理</li> <li>然后调用InitializingBean#afterPropertiesSet方法或者是调用自定义的init-method方法</li> <li>然后调用BeanPostProcessor#postProcessAfterInitialization方法执行bean增强的后置处理</li> <li>最后完成Bean的创建，最终放入一级缓存singletonObjects中</li> </ul> <p>整体流程大概就是这个，有了整体流程就可以进行下一步Bean创建的细节解读。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-20138.htm">动物疫苗价格排行榜前十名有哪些种类图片大全（动物疫苗多少钱一支）</a></p>
+                                        <p>下一个：<a href="/news/article-20598.htm">动物疫苗厂家排名榜前十名 动物疫苗厂家排名榜前十名有哪些</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-shadowrocket-node.htm" title="「10月15日」最高速度22.1M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月15日」最高速度22.1M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-ssr-node.htm" title="「11月9日」最高速度21.5M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月9日」最高速度21.5M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-clash.htm" title="「11月17日」最高速度19.3M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月17日」最高速度19.3M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-clash-node-daily-updates.htm" title="「10月24日」最高速度22.3M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月24日」最高速度22.3M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-25-clash-node.htm" title="「6月25日」最高速度22.8M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接">「6月25日」最高速度22.8M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-23-free-clash-subscribe.htm" title="「5月23日」最高速度19.2M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅链接">「5月23日」最高速度19.2M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-node-subscribe-links.htm" title="「12月2日」最高速度22.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月2日」最高速度22.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-free-subscribe-node.htm" title="「10月28日」最高速度18.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月28日」最高速度18.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-clash-node-daily-updates.htm" title="「11月25日」最高速度20.4M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月25日」最高速度20.4M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-node-share-links.htm" title="「11月22日」最高速度19.5M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月22日」最高速度19.5M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
