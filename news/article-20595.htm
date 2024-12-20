@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Spring IOC Bean 创建的整体流程</title>
         <meta name="description" content="Spring IOC 中涉及的重要接口   BeanDefinitionBean的描述信息，实现类包括RootBeanDefinition 和GenericBeanDefinition，Bean的描述" />
-        <link rel="icon" href="__ADDON__/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
     <!-- web-fonts -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -101,7 +101,8 @@
                                   <li class="active">正文</li>
                                 </ol>
 
-                                                  				  				  				<h3 id="spring-ioc-中涉及的重要接口"><code>Spring IOC</code> 中涉及的重要接口</h3> <ul> <li> <p><code>BeanDefinition</code><br /><code>Bean</code>的描述信息，实现类包括<code>RootBeanDefinition</code> 和<code>GenericBeanDefinition</code>，Bean的描述信息中定义了一系列Bean的信息，比如：<code>beanClassName</code>、<code>scope</code>、<code>lazyinit</code>、<code>dependsOn</code>、<code>primary</code>、<code>initMethodName</code>、<code>destroyMethodName</code>、<code>isSington</code>、<code>isAbstract</code>等信息。</p> </li> <li> <p><code>BeanDefinitionReader</code></p> <p>用于解析<code>Bean</code>的资源阅读器，比如针对于<code>XML</code>文件的配置的<code>Bean</code>，实现类<code>XmlBeanDefinitionReader</code>，针对<code>properties</code>文件的配置的<code>Bean</code>，实现类为<code>PropertiesBeanDefinitionReader</code>，<code>Spring</code>在启动时会将<code>xml</code>文件通过<code>loadBeanDefinitions</code>方法进行解析。</p> </li> <li> <p><code>BeanFactory</code><br /> 是<code>IOC</code>容器实现的顶层接口，默认的实现为<code>DefaultListableBeanFactory</code>，<code>Spring Bean</code> 的整个生命周期都是由<code>DefaultListableBeanFactory</code>去管理的，<strong>这个类非常的重要</strong>。</p> </li> <li> <p><code>BeanFactoryPostProcessor</code></p> <p>这个接口是<code>BeanFactory</code>的增强处理器，用于在<code>Bean</code>加载为<code>BeanDefinition</code>之后的扩展，比如实现类<code>PlaceHolderConfigurerSupport</code> 就是用来处理占位符解析的，当我在<code>xml</code>文件中配置<code>jdbc</code>信息的时候，通过是用<code>${xxx.jdbUrl}</code>这种方式配置数据库连接的时候，就是通过这个类来处理和解析的。</p> </li> <li> <p><code>Aware</code></p> <p>这个接口，他下面有一堆的子接口，比如<code>BeanNameAware</code>、<code>ApplicationContextAware</code>、<code>BeanFactoryAware</code>、<code>EnvironmentAware</code>等，可以通过实现这些接口完成<code>ioc</code>容器中特定信息的设置，比如<code>EnvironmentAware</code>，可以在<code>Bean</code>创建过程中设置环境信息到对应的<code>Bean</code>对象中，后期通过<code>bean</code>对象获取环境信息数据。</p> </li> <li> <p><code>BeanPostProcessor</code></p> <p>这个接口是<code>Bean</code>的增强处理器，用于在<code>Bean</code>进行初始化时调用<code>init-method</code>方法的前后进行增强，他有两个方法：<code>postProcessBeforeInitialization</code>和<code>postProcessAfterInitialization</code>，分别用于<code>bean</code>初始化方法<code>init-method</code>之前和之后调用，当然还可以进行很多扩展，比如<code>aop</code>就是通过<code>postProcessAfterInitialization</code>方法中去创建动态代理对象。</p> </li> </ul> <h3 id="spring-bean-的生命周期"><code>Spring Bean</code> 的生命周期</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/44945d57d34271799345e0fe8e9be72b.jpg" alt="Spring IOC Bean 创建的整体流程"></p> <ul> <li>首先通过BeanDefinitionReader将xml中的Bean配置加载到BeanDefinition中</li> <li>然后将BeanDefinition放入DefaultListableBeanFacotry的beanDefinitionMap和beanDefinitionNames集合中</li> <li>然后调用BeanFactoryPostProcessor#postProcessorBeanFactory对容器中的BeanDefinition的属性进行增强解析</li> <li>然后通过反射调用对象的构造函数进行对象的实例化</li> <li>然后调用populateBean进行属性填充</li> <li>然后调用初始化方法initializeBean，初始化时又会先调用invokeAwareMethods方法执行一堆的Aware方法</li> <li>然后BeanPostProcessor#postProcessBeforeInitialization方法执行bean增强器的前置处理</li> <li>然后调用InitializingBean#afterPropertiesSet方法或者是调用自定义的init-method方法</li> <li>然后调用BeanPostProcessor#postProcessAfterInitialization方法执行bean增强的后置处理</li> <li>最后完成Bean的创建，最终放入一级缓存singletonObjects中</li> </ul> <p>整体流程大概就是这个，有了整体流程就可以进行下一步Bean创建的细节解读。</p> 			                <div class="clearfix"></div>
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h3 id="spring-ioc-中涉及的重要接口"><code>Spring IOC</code> 中涉及的重要接口</h3> <ul> <li> <p><code>BeanDefinition</code><br /><code>Bean</code>的描述信息，实现类包括<code>RootBeanDefinition</code> 和<code>GenericBeanDefinition</code>，Bean的描述信息中定义了一系列Bean的信息，比如：<code>beanClassName</code>、<code>scope</code>、<code>lazyinit</code>、<code>dependsOn</code>、<code>primary</code>、<code>initMethodName</code>、<code>destroyMethodName</code>、<code>isSington</code>、<code>isAbstract</code>等信息。</p> </li> <li> <p><code>BeanDefinitionReader</code></p> <p>用于解析<code>Bean</code>的资源阅读器，比如针对于<code>XML</code>文件的配置的<code>Bean</code>，实现类<code>XmlBeanDefinitionReader</code>，针对<code>properties</code>文件的配置的<code>Bean</code>，实现类为<code>PropertiesBeanDefinitionReader</code>，<code>Spring</code>在启动时会将<code>xml</code>文件通过<code>loadBeanDefinitions</code>方法进行解析。</p> </li> <li> <p><code>BeanFactory</code><br /> 是<code>IOC</code>容器实现的顶层接口，默认的实现为<code>DefaultListableBeanFactory</code>，<code>Spring Bean</code> 的整个生命周期都是由<code>DefaultListableBeanFactory</code>去管理的，<strong>这个类非常的重要</strong>。</p> </li> <li> <p><code>BeanFactoryPostProcessor</code></p> <p>这个接口是<code>BeanFactory</code>的增强处理器，用于在<code>Bean</code>加载为<code>BeanDefinition</code>之后的扩展，比如实现类<code>PlaceHolderConfigurerSupport</code> 就是用来处理占位符解析的，当我在<code>xml</code>文件中配置<code>jdbc</code>信息的时候，通过是用<code>${xxx.jdbUrl}</code>这种方式配置数据库连接的时候，就是通过这个类来处理和解析的。</p> </li> <li> <p><code>Aware</code></p> <p>这个接口，他下面有一堆的子接口，比如<code>BeanNameAware</code>、<code>ApplicationContextAware</code>、<code>BeanFactoryAware</code>、<code>EnvironmentAware</code>等，可以通过实现这些接口完成<code>ioc</code>容器中特定信息的设置，比如<code>EnvironmentAware</code>，可以在<code>Bean</code>创建过程中设置环境信息到对应的<code>Bean</code>对象中，后期通过<code>bean</code>对象获取环境信息数据。</p> </li> <li> <p><code>BeanPostProcessor</code></p> <p>这个接口是<code>Bean</code>的增强处理器，用于在<code>Bean</code>进行初始化时调用<code>init-method</code>方法的前后进行增强，他有两个方法：<code>postProcessBeforeInitialization</code>和<code>postProcessAfterInitialization</code>，分别用于<code>bean</code>初始化方法<code>init-method</code>之前和之后调用，当然还可以进行很多扩展，比如<code>aop</code>就是通过<code>postProcessAfterInitialization</code>方法中去创建动态代理对象。</p> </li> </ul> <h3 id="spring-bean-的生命周期"><code>Spring Bean</code> 的生命周期</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/44945d57d34271799345e0fe8e9be72b.jpg" alt="Spring IOC Bean 创建的整体流程"></p> <ul> <li>首先通过BeanDefinitionReader将xml中的Bean配置加载到BeanDefinition中</li> <li>然后将BeanDefinition放入DefaultListableBeanFacotry的beanDefinitionMap和beanDefinitionNames集合中</li> <li>然后调用BeanFactoryPostProcessor#postProcessorBeanFactory对容器中的BeanDefinition的属性进行增强解析</li> <li>然后通过反射调用对象的构造函数进行对象的实例化</li> <li>然后调用populateBean进行属性填充</li> <li>然后调用初始化方法initializeBean，初始化时又会先调用invokeAwareMethods方法执行一堆的Aware方法</li> <li>然后BeanPostProcessor#postProcessBeforeInitialization方法执行bean增强器的前置处理</li> <li>然后调用InitializingBean#afterPropertiesSet方法或者是调用自定义的init-method方法</li> <li>然后调用BeanPostProcessor#postProcessAfterInitialization方法执行bean增强的后置处理</li> <li>最后完成Bean的创建，最终放入一级缓存singletonObjects中</li> </ul> <p>整体流程大概就是这个，有了整体流程就可以进行下一步Bean创建的细节解读。</p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-20138.htm">动物疫苗价格排行榜前十名有哪些种类图片大全（动物疫苗多少钱一支）</a></p>
                                         <p>下一个：<a href="/news/article-20598.htm">动物疫苗厂家排名榜前十名 动物疫苗厂家排名榜前十名有哪些</a></p>
@@ -114,16 +115,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-11-clash-node.htm" title="「9月11日」最高速度21.1M/S，2024年Hiddify Next每天更新免费节点订阅链接">「9月11日」最高速度21.1M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-clash-subscribe.htm" title="「10月8日」最高速度22.1M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月8日」最高速度22.1M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-25-clash-node.htm" title="「6月25日」最高速度22.8M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接">「6月25日」最高速度22.8M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-5-clash-v2ray-ss-ssr.htm" title="「10月5日」最高速度20.3M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月5日」最高速度20.3M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-19-free-shadowrocket-node.htm" title="「9月19日」最高速度20.9M/S，2024年Hiddify Next每天更新免费节点订阅链接">「9月19日」最高速度20.9M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-6-clash-v2ray-ss-ssr.htm" title="「7月6日」最高速度19.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「7月6日」最高速度19.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-12-free-subscribe-node.htm" title="「5月12日」最高速度18M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「5月12日」最高速度18M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-v2ray.htm" title="「11月8日」最高速度21.8M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月8日」最高速度21.8M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-12-clash-windows.htm" title="「7月12日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「7月12日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-3-shadowrocket-node.htm" title="「6月3日」最高速度21.6M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接">「6月3日」最高速度21.6M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-17-free-ssr-subscribe.htm" title="「5月17日」最高速度19M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接">「5月17日」最高速度19M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-node-subscribe-links.htm" title="「12月2日」最高速度22.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月2日」最高速度22.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-26-free-clash-subscribe.htm" title="「5月26日」最高速度19.8M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接">「5月26日」最高速度19.8M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-clash-v2ray-ss-ssr.htm" title="「12月16日」最高速度18.8M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月16日」最高速度18.8M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-clash-node.htm" title="「10月16日」最高速度19.9M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月16日」最高速度19.9M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27065.htm" title="宠物用品微商货源（宠物用品货源从哪里来）">宠物用品微商货源（宠物用品货源从哪里来）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-13-free-node-subscribe.htm" title="「6月13日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接">「6月13日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-2-clash-v2ray-ss-ssr.htm" title="「5月2日」最高速度18.4M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接">「5月2日」最高速度18.4M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-ssr-subscribe.htm" title="「10月2日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月2日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-clash-v2ray-ss-ssr.htm" title="「12月18日」最高速度19.9M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月18日」最高速度19.9M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -135,7 +136,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -171,6 +172,15 @@
                                 <footer class="footer">
                     <div class="copyright-section">
                         <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                             <span class="copytext">
                                 Hiddify Next节点分享站 版权所有 Powered by WordPress
                             </span>

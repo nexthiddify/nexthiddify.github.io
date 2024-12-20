@@ -105,6 +105,7 @@
                   				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>我们公司用的云之家作为企业内容的IM通讯工具，那么就经常会涉及通过云之家进行消息推送，这个就有点类似微信了。那么我在推送图文消息的时候，云之家需要我把图片转Base64的格式传过去。</p> <div class="pgc-img"><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/f62e5a6f8960ca9e832f9cfab64ef377.jpg" alt="avframe转byte数组_Spring Boot图片文件转Base64"></div> <p>最开始我傻傻的用在线工具把图片转成Base64然后复制到程序里，当然这肯定是不好的，但是为了测试，就这样做了，然后占了70%的代码行数。正式的话，我们肯定是要借助代码来实现。那么我们需要先获取项目目录下的文件</p> <pre class="has"><code>File file = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + "static/warnning.png");</code></pre> <p>然后借助sun.misc.BASE64Decoder把文件转Base64</p> <pre class="has"><code>public static String file2Base64(File file) {        InputStream in = null;        byte[] data = null;        // 读取文件字节数组        try {            in = new FileInputStream(file);            data = new byte[in.available()];            in.read(data);            in.close();        } catch (IOException e) {            e.printStackTrace();        } finally {            try {                in.close();            } catch (IOException e) {                e.printStackTrace();            }        }        // 对字节数组Base64编码        BASE64Encoder encoder = new BASE64Encoder();        // 返回 Base64 编码过的字节数组字符串        return encoder.encode(data);    }</code></pre> <p>在本地一切都没有问题，但是通过jenkins发布到K8S的时候老是出现找不到包的问题，我也就没去深究，后来就用Hutool,这里我引入了Hutool工具包</p> <pre class="has"><code>cn.hutool            hutool-core            5.4.3</code></pre> <p>Hutool的Base64.encode在core这个包里面，所以只需要引入hutool-core即可。 引用非常简单</p> <pre class="has"><code>File file = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + "static/warnning.png");String picBase64= cn.hutool.core.codec.Base64.encode(file);</code></pre> <p>但是事情似乎也并没有那么顺利，在本地运行没有问题，项目也是在K8S上运行起来了，但是获取不到文件</p> <pre class="has"><code>java.io.FileNotFoundException: class path resource [static/warnning.png] cannot be resolved to absolute file path because it does not reside in the file system: jar:file:/home/app.jar!/BOOT-INF/classes!/static/warnning.png</code></pre> <div class="pgc-img"><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/ce941acc1877e13a563274fa92aecfaa.jpg" alt="avframe转byte数组_Spring Boot图片文件转Base64"></div> <p>因为打包之后是jar文件，ResourceUtils.getFile无法访问jar中的目录，所以后来采用获取文件流的方式</p> <pre class="has"><code> ClassPathResource resource = new ClassPathResource("static/warnning.png"); String picBase64= cn.hutool.core.codec.Base64.encode(resource.getInputStream());</code></pre> <p>Hutool这个工具包确实不错，提供很多丰富的工具类，我用得比较多是就是StringUtil和DateUtil等，确实非常方便，大家有兴趣的可以去了解一下</p> <div class="pgc-img"><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/143e0c272286aa5be3ed36c2e2ab2980.jpg" alt="avframe转byte数组_Spring Boot图片文件转Base64"></div> <p>现在各种工具类库以及Spring Boot的Starter，它们封装了许多实用的组件和工具类，为我们的开发提高了效率，这样有利有弊，当然，如果仅仅是为了解决工作中的问题，我可以借助更多简便的类库来完成，但是，我需要去了解其背后的原理和实现机制，不然，我们的能力仅仅停留在使用层面，这对我们来说是非常不利的。我们要知其然，更要知其所以然，开源的类库众多，我们需要花心思去学习它的源代码、学习大神们编程思想。</p> </div> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-27985.htm">pyspark读取hive数据实例</a></p>
+                                        <p>下一个：<a href="/news/article-28459.htm">vue-element-admin 配置接口请求，跨域，版本4</a></p>
                                     </div>
                                             </div>
                             <div class="col-md-3">
@@ -114,16 +115,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-ssr-node.htm" title="「8月27日」最高速度21.9M/S，2024年Hiddify Next每天更新免费节点订阅链接">「8月27日」最高速度21.9M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-12-clash-windows.htm" title="「7月12日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「7月12日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-clash.htm" title="「12月1日」最高速度21M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月1日」最高速度21M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-ssr-subscribe.htm" title="「10月2日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月2日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-4-free-v2ray-subscribe.htm" title="「10月4日」最高速度20.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月4日」最高速度20.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-25202.htm" title="参观动物园心得体会80字（参观动物园的感受200字左右）">参观动物园心得体会80字（参观动物园的感受200字左右）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-7-free-shadowrocket-node.htm" title="「9月7日」最高速度18.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「9月7日」最高速度18.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27526.htm" title="可以自己买疫苗去宠物店打吗现在多少钱（自己买的疫苗去宠物店代打）">可以自己买疫苗去宠物店打吗现在多少钱（自己买的疫苗去宠物店代打）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-3-free-node-subscribe-links.htm" title="「9月3日」最高速度20.6M/S，2024年Hiddify Next每天更新免费节点订阅链接">「9月3日」最高速度20.6M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-15-free-subscribe-node.htm" title="「9月15日」最高速度20.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「9月15日」最高速度20.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-28-shadowrocket-node.htm" title="「6月28日」最高速度18.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「6月28日」最高速度18.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-clash-node.htm" title="「11月29日」最高速度19.4M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月29日」最高速度19.4M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-14-clash-node.htm" title="「7月14日」最高速度19.3M/S，2024年Hiddify Next每天更新免费节点订阅链接">「7月14日」最高速度19.3M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-3-shadowrocket-node.htm" title="「6月3日」最高速度21.6M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接">「6月3日」最高速度21.6M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-6-clash-v2ray-ss-ssr.htm" title="「7月6日」最高速度19.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「7月6日」最高速度19.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-clash-node-daily-updates.htm" title="「9月13日」最高速度21.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「9月13日」最高速度21.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-free-ssr-node.htm" title="「10月23日」最高速度19M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月23日」最高速度19M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-node-share-links.htm" title="「11月19日」最高速度21.5M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月19日」最高速度21.5M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-clash-windows.htm" title="「11月16日」最高速度21.9M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月16日」最高速度21.9M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-clash-subscribe.htm" title="「12月20日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月20日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -135,7 +136,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
