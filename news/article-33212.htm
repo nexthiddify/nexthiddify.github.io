@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-33212.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Java数据结构之单向环形链表（解决Josephu约瑟夫环问题）</title>
+        <meta name="description" content="1.Josephu（约瑟夫、约瑟夫环）问题： 设编号为1，2，… n的n个人围坐一圈，约定编号为k（1&lt;=k&lt;=n）的人从1开始报数，数到m 的那个人出列，它的下一位又从1开始报数，数到m" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                                                        <a class="navbar-brand" href="/">Hiddify Next节点分享</a>
+                                                    </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Java数据结构之单向环形链表（解决Josephu约瑟夫环问题）</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body"> <p><strong>1.Josephu（约瑟夫、约瑟夫环）问题：</strong></p> <p>设编号为1，2，… n的n个人围坐一圈，约定编号为k（1&lt;=k&lt;=n）的人从1开始报数，数到m 的那个人出列，它的下一位又从1开始报数，数到m的那个人又出列，依次类推，直到所有人出列为止，由此产生一个出队编号的序列。</p> <p><strong>提示：</strong></p> <p>用一个不带头结点的循环链表来处理Josephu 问题：先构成一个有n个结点的单循环链表，然后由k结点起从1开始计数，计到m时，对应结点从链表中删除，然后再从被删除结点的下一个结点又从1开始计数，直到最后一个结点从链表中删除算法结束。</p> <p>2.单向环形链表示意图</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20230108/50cd9f19dce07f7b683a1ba51a65ad87.jpg"></p> <p>3.约瑟夫问题的示意图</p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="482" src="http://img.555519.xyz/uploads/20230108/11d8f31c72fa699574d637c4207e21b2.jpg"></p> <p>4.创建环形链表的思路</p> <p><img decoding="async" alt="" class="has" height="214" src="http://img.555519.xyz/uploads/20230108/e6f7c54e56eea936fdcc1273ba2e9dc9.jpg"></p> <p>1）构建一个单向的环形链表思路</p> <ul> <li>先创建第一个节点，让first指向该节点，并形成环形</li> <li>后面当我们每创建一个新的节点，就把该节点加入到已有的环形链表中即可。</li> </ul> <p>2）遍历环形链表</p> <ul> <li>先让一个辅助指针（变量）curBoy，指向first节点</li> <li>然后通过一个while循环遍历该环形链表即可，curBoy.next == first结束</li> </ul> <p>5. 约瑟夫问题小孩出圈的思路分析</p> <p><img decoding="async" alt="" class="has" height="425" src="http://img.555519.xyz/uploads/20230108/6e8050ec6a82ab63210689c6f61b11e7.jpg"></p> <p>6.代码实现</p> <div> <pre><code class="language-html hljs">public class Josepfu {      public static void main(String[] args) {         // 测试一把看看构建环形链表，和遍历是否ok         CircleSingleLinkedList circleSingleLinkedList = new CircleSingleLinkedList();         circleSingleLinkedList.addBoy(125);// 加入5个小孩节点         circleSingleLinkedList.showBoy();                  //测试一把小孩出圈是否正确         circleSingleLinkedList.countBoy(10, 20, 125); // 2-&gt;4-&gt;1-&gt;5-&gt;3         //String str = "7*2*2-5+1-5+3-3";     }  }  // 创建一个环形的单向链表 class CircleSingleLinkedList {     // 创建一个first节点,当前没有编号     private Boy first = null;      // 添加小孩节点，构建成一个环形的链表     public void addBoy(int nums) {         // nums 做一个数据校验         if (nums &lt; 1) {             System.out.println("nums的值不正确");             return;         }         Boy curBoy = null; // 辅助指针，帮助构建环形链表         // 使用for来创建我们的环形链表         for (int i = 1; i &lt;= nums; i++) {             // 根据编号，创建小孩节点             Boy boy = new Boy(i);             // 如果是第一个小孩             if (i == 1) {                 first = boy;                 first.setNext(first); // 构成环                 curBoy = first; // 让curBoy指向第一个小孩             } else {                 curBoy.setNext(boy);//                 boy.setNext(first);//                 curBoy = boy;             }         }     }      // 遍历当前的环形链表     public void showBoy() {         // 判断链表是否为空         if (first == null) {             System.out.println("没有任何小孩~~");             return;         }         // 因为first不能动，因此我们仍然使用一个辅助指针完成遍历         Boy curBoy = first;         while (true) {             System.out.printf("小孩的编号 %d \n", curBoy.getNo());             if (curBoy.getNext() == first) {// 说明已经遍历完毕                 break;             }             curBoy = curBoy.getNext(); // curBoy后移         }     }      // 根据用户的输入，计算出小孩出圈的顺序     /**      *       * @param startNo      *            表示从第几个小孩开始数数      * @param countNum      *            表示数几下      * @param nums      *            表示最初有多少小孩在圈中      */     public void countBoy(int startNo, int countNum, int nums) {         // 先对数据进行校验         if (first == null || startNo &lt; 1 || startNo &gt; nums) {             System.out.println("参数输入有误， 请重新输入");             return;         }         // 创建要给辅助指针,帮助完成小孩出圈         Boy helper = first;         // 需求创建一个辅助指针(变量) helper , 事先应该指向环形链表的最后这个节点         while (true) {             if (helper.getNext() == first) { // 说明helper指向最后小孩节点                 break;             }             helper = helper.getNext();         }         //小孩报数前，先让 first 和  helper 移动 k - 1次         for(int j = 0; j &lt; startNo - 1; j++) {             first = first.getNext();             helper = helper.getNext();         }         //当小孩报数时，让first 和 helper 指针同时 的移动  m  - 1 次, 然后出圈         //这里是一个循环操作，知道圈中只有一个节点         while(true) {             if(helper == first) { //说明圈中只有一个节点                 break;             }             //让 first 和 helper 指针同时 的移动 countNum - 1             for(int j = 0; j &lt; countNum - 1; j++) {                 first = first.getNext();                 helper = helper.getNext();             }             //这时first指向的节点，就是要出圈的小孩节点             System.out.printf("小孩%d出圈\n", first.getNo());             //这时将first指向的小孩节点出圈             first = first.getNext();             helper.setNext(first); //                      }         System.out.printf("最后留在圈中的小孩编号%d \n", first.getNo());              } }  // 创建一个Boy类，表示一个节点 class Boy {     private int no;// 编号     private Boy next; // 指向下一个节点,默认null      public Boy(int no) {         this.no = no;     }      public int getNo() {         return no;     }      public void setNo(int no) {         this.no = no;     }      public Boy getNext() {         return next;     }      public void setNext(Boy next) {         this.next = next;     } }</code></pre> </p></div> <p>&nbsp;</p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33211.htm">pyecharts绘制桑基图实现节点颜色自定义</a></p>
+                                        <p>下一个：<a href="/news/article-33670.htm">广州有狗狗领养中心（广州有狗狗领养中心吗）</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-clash-node.htm" title="「9月11日」最高速度21.1M/S，2024年Hiddify Next每天更新免费节点订阅链接">「9月11日」最高速度21.1M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25201.htm" title="福建农大动物医院没开了吗最近（福州农大动物医院怎么样）">福建农大动物医院没开了吗最近（福州农大动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-node-share-links.htm" title="「8月26日」最高速度21.1M/S，2024年Hiddify Next每天更新免费节点订阅链接">「8月26日」最高速度21.1M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26601.htm" title="宠物粮生产流程视频 宠物粮生产流程视频教程">宠物粮生产流程视频 宠物粮生产流程视频教程</a></li>
+                        <li class="py-2"><a href="/news/article-23340.htm" title="兰州哪里有宠物店?（兰州卖宠物的地方在哪）">兰州哪里有宠物店?（兰州卖宠物的地方在哪）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-20-clash-node-daily-updates.htm" title="「6月20日」最高速度19.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「6月20日」最高速度19.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-12-free-ssr-node.htm" title="「6月12日」最高速度20.4M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接">「6月12日」最高速度20.4M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-14-free-high-speed-nodes.htm" title="「5月14日」最高速度20.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接">「5月14日」最高速度20.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-29-free-subscribe-node.htm" title="「8月29日」最高速度23M/S，2024年Hiddify Next每天更新免费节点订阅链接">「8月29日」最高速度23M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-node-subscribe-links.htm" title="「12月13日」最高速度19.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月13日」最高速度19.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
