@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-37540.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>从模型复杂度角度来理解过拟合现象</title>
+        <meta name="description" content="一、什么是模型复杂度 机器学习是通过学习训练集的数据从而得到具体的模型，最终达到预测未知数据的能力；这就涉及到模型对训练数据的拟合能力了；从数理统计的角度来看，不同的训练数据集会有不同的概率分布规律；" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                                                        <a class="navbar-brand" href="/">Hiddify Next节点分享</a>
+                                                    </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>从模型复杂度角度来理解过拟合现象</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>一、什么是模型复杂度</p> <p>机器学习是通过学习训练集的数据从而得到具体的模型，最终达到预测未知数据的能力；这就涉及到模型对训练数据的拟合能力了；从数理统计的角度来看，不同的训练数据集会有不同的概率分布规律；只有我们的模型的具有表达训练集的数据分布规律的能力才能训练得到一个好的模型，而模型的这个能力就是模型复杂度；</p> <p>二、从泰勒中值定理看模型复杂度</p> <p>对于一些比较复杂的函数，为了便于计算和研究，往往希望将其用一些简单的函数来近似表达。多项式是最为简单的一类函数，它只要对自变量进行有限次的加、减、乘三种算术运算，就能求出其函数值。因此多项式经常被用于近似地表达函数，这种近似表达在数学上称为多项式逼近。</p> <p>英国数学家泰勒在多项式逼近方面做出了开创性贡献。 他的研究结果表明：具有n+1阶导数的函数在一个点的邻域内的值可以用函数在该点的函数值及各阶导数值组成的n次多项式近似表达，即泰勒中值定理。</p> <p>泰勒中值定理</p> <p>如果函数f(x)在含有x0的开区间(a,b)内具有直到n+1阶的导数，则对任一x∈(a,b)，有</p> <div class="math display">\[f(x)=f\left(x_{0}\right)+f^{\prime}\left(x_{0}\right)\left(x-x_{0}\right)+\frac{f^{\prime \prime}\left(x_{0}\right)}{2 !}\left(x-x_{0}\right)^{2}+\cdots+\frac{f^{(n)}\left(x_{0}\right)}{n !}\left(x-x_{0}\right)^{n}+R_{n}(x)<br /> \]</div> <p>其中</p> <div class="math display">\[R_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1) !}\left(x-x_{0}\right)^{n+1}<br /> \]</div> <p>所有光滑的函数图像都可以使用泰勒中值定理以任意精度去逼近模拟，展开成泰勒多项式的形式后，我们就可以看到一个模型复杂程度由以下两个因素决定了</p> <p>● 模型多项式系数数量的多少，系数越少，相应地多项式项数就越少，意味着模型函数图像的曲线形状越简单。<br /> ● 模型多项式系数数值的大小，系数越小，意味着该多项式项对结果影响越轻微，模型函数图像的曲线越平滑。</p> <p>我们只有恰当地做好模型复杂度的权衡决策，才能令模型既能正确地识别样本，又不至于过度复杂，学习到了属于训练集本身的特征。</p> <p>三、模型复杂度对数据拟合的影响</p> <p>机器学习更加关注模型在未知数据上的泛化能力，而不仅仅是在训练数据集上的拟合能力；虽然训练集和测试集遵循统一数据生成分布，理论上两者的误差的期望应该是一样的，但是由于模型是基于训练集进行训练拟合的，所以一般情况下测试误差要比训练误差大；为了得到一个更好模型，我们需要从以下两方面进行努力</p> <p>● 降低训练误差。<br /> ● 缩小训练误差和测试误差的差距。</p> <p>这两个因素对应机器学习的两个主要挑战：欠拟合(underfitting)和过拟合(overfitting)。欠拟合是指模型不能在训练集上获得足够低的训练误差，而过拟合是指训练误差和测试误差之间的差距太大。</p> <p>通过调整模型的复杂度，我们可以控制模型是否偏向于过拟合或者欠拟合。过于简单的模型可能很难拟合训练集。太复杂的模型可能会过拟合，因为记住了不适用于测试集的训练集性质。</p> <p>对于相同数量的训练数据，随着使用更复杂的模型，训练误差会逐步减少。但是测试误差会经过一个最小值后开始上升。上升就是所谓的过拟合：机器从学习示例中学习了太多细节，并且忽视了我们要其完成的任务的一般性。它开始死记硬背地学习，而不是试图从中提取规律。该曲线的最低点给出了我们应该选择的模型的复杂度。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b1b6d7a62517e88a45eef480808f6aeb.jpg" alt="从模型复杂度角度来理解过拟合现象"></p> <p>对于一个给定的模型，随着训练集数量的增加，训练误差（虚线）缓慢上升，而测试误差（实线）缓慢下降。对于较简单的小型模型（灰色线），曲线在较少的训练数量上开始变得越来越近，并且越来越快，但是最终误差是相当大的。对于比较复杂的大型模型（具有更多参数），两条曲线开始逼近之前需要更多的示例。它们彼此靠近的速度较慢，但最终的误差较小。测试误差的两条曲线相交。交点之前，优选小型模型；交点之后，大型模型更佳。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4b736ec45a34f2f20968949485c7a4d4.jpg" alt="从模型复杂度角度来理解过拟合现象"></p> <p>通过下边一个简单的示例，我们从整体上来感受一下；下边图中，P代表参与训练的数据数量，D代表模型的复杂程度(代表多项式的最高次数)，TrE代表训练误差，TsE代表测试误差；</p> <p>从图中我们可以看到<br /> 随着训练数据集点数的增加，数据的分布规律变的更加复杂；<br /> 随着训练数据集点数的增加，突破了简单模型的表达能力，导致训练误差随之增大，这就是欠拟合问题；<br /> 如果模型的复杂度太大，超过了训练数据集的数据分布的复杂度，会导致模型过度的解读局部的数据点，导致模型的训练误差为0，但是测试误差增大，这就是过拟合问题；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/586e10db357636b6987adea5727b71c8.jpg" alt="从模型复杂度角度来理解过拟合现象"></p> <p>四、使用正则化避免过拟合</p> <p>正则化是避免过拟合的有效方式，是在训练误差上加一个正则化项（regularizer）或罚项（penalty term)。正则化项一般是模型复杂度的单调递增函数，模型越复杂，正则化值就越大。比如，正则化项可以是模型参数向量的范数。</p> <div class="math display">\[w^{*}=\underset{w}{\operatorname{argmin}} \sum_{i} L\left(y_{i}, f\left(x_{i}, w\right)\right)+\Omega(w)<br /> \]</div> <p>其中，第1项是经验风险，第2项是正则化项，λ≥0为调整两者之间关系的系数。<br /> 正则化项可以取不同的形式。例如，回归问题中，损失函数是平方损失，正则化项可以是参数向量的L2范数：</p> <div class="math display">\[w^{*}=\underset{w}{\operatorname{argmin}} \sum_{i} L\left(y_{i}, f\left(x_{i}, w\right)\right)+\frac{\lambda}{2}\|w\|^{2}<br /> \]</div> <p>第1项的模型可能较复杂（有多个非零参数），这时第2项的模型复杂度会较大。正则化的作用是选择训练误差与模型复杂度同时较小的模型。</p> <p>具体为什么可以直接通过添加一个正则化项可以实现控制模型复杂度，可以参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/wufengtinghai/p/16163779.html"  target="_blank" rel="nofollow">拉格朗日乘数法，一种计算条件极值的方式</a>。</p> <p>在下边的图中，我们使用9阶多项式加L2范数来拟合按照二次函数分布的训练数据；在左图中，当λ非常大时，我们可以强迫模型学习到一个没有斜率的函数。由于它只能表示一个常数函数，所以会导致欠拟合。在中间的图中，取一个适当的λ时，学习算法能够用一个正常的形状来恢复曲率。即使模型能够用更复杂的形状来表示函数，L2范数也鼓励用一个带有更小参数的更简单的模型来描述它。在右图中，当权重衰减趋近于0时，这个9阶多项式会导致严重的过拟合。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f9121477d3ed79c1ac29a04fcdd73169.jpg" alt="从模型复杂度角度来理解过拟合现象"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37539.htm">Java中的append方法是什么？</a></p>
+                                        <p>下一个：<a href="/news/article-38002.htm">vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-35903.htm" title="南京宠物狗领养地址在哪里呀（南京宠物狗领养地址在哪里呀最近）">南京宠物狗领养地址在哪里呀（南京宠物狗领养地址在哪里呀最近）</a></li>
+                        <li class="py-2"><a href="/news/article-21508.htm" title="动物疫苗行业的现状及未来的发展 动物疫苗行业的现状及未来的发展趋势">动物疫苗行业的现状及未来的发展 动物疫苗行业的现状及未来的发展趋势</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-free-ssr-subscribe.htm" title="「10月27日」最高速度21.5M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月27日」最高速度21.5M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-ssr-node.htm" title="「10月29日」最高速度21M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月29日」最高速度21M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-34630.htm" title="领养宠物回访（领养宠物回访要多久）">领养宠物回访（领养宠物回访要多久）</a></li>
+                        <li class="py-2"><a href="/news/article-31225.htm" title="动物医院好评语30字通用（动物医院好评语30字通用句子）">动物医院好评语30字通用（动物医院好评语30字通用句子）</a></li>
+                        <li class="py-2"><a href="/news/article-31760.htm" title="济南美联广场美食（济南美莲广场有什么好玩的）">济南美联广场美食（济南美莲广场有什么好玩的）</a></li>
+                        <li class="py-2"><a href="/news/article-19222.htm" title="成都领养宠物中心电话地址（成都领养宠物中心电话地址）">成都领养宠物中心电话地址（成都领养宠物中心电话地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-v2ray.htm" title="「11月8日」最高速度21.8M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月8日」最高速度21.8M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25201.htm" title="福建农大动物医院没开了吗最近（福州农大动物医院怎么样）">福建农大动物医院没开了吗最近（福州农大动物医院怎么样）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
