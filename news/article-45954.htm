@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-45954.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>python推送数据到kafka的kerberos服务验证（ubuntu）</title>
+        <meta name="description" content="1. 安装必要的依赖包 apt-get install krb5-kdc libkrb5-dev python3-six -y --fix-missing pip3 install gssapi==1" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-45954.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="python推送数据到kafka的kerberos服务验证（ubuntu）" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/888b44e30e7aece27b0a7fc9f63050eb.webp" />
+        <meta property="og:release_date" content="2025-01-25T09:53:09" />
+    <meta property="og:updated_time" content="2025-01-25T09:53:09" />
+        <meta property="og:description" content="1. 安装必要的依赖包 apt-get install krb5-kdc libkrb5-dev python3-six -y --fix-missing pip3 install gssapi==1" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python推送数据到kafka的kerberos服务验证（ubuntu）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                                                        <a class="navbar-brand" href="/">Hiddify Next节点分享</a>
+                                                    </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>python推送数据到kafka的kerberos服务验证（ubuntu）</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3>1. 安装必要的依赖包</h3> <pre><code class="language-bash">apt-get install krb5-kdc libkrb5-dev python3-six -y --fix-missing pip3 install gssapi==1.6.6 kafka-python==2.0.1 -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</code></pre> <h3>2. 获取必要的配置文件krb5.conf、kafka.keytab、jaas.conf放到/etc目录下</h3> <h3>3. 配置/etc/hosts地址映射到kafka数据节点</h3> <pre><code class="language-bash">echo "127.0.0.1 kafka-point-01\n127.0.0.1 kafka-point-02\n127.0.0.1 kafka-point-03" &gt;&gt; /etc/hosts</code></pre> <h3>4. 生成kerberos认证票据</h3> <pre><code class="language-bash">kinit -kt /etc/kafka.keytab kafka/bigdata-test-01@TDH</code></pre> <h3>5. 初始化kerberos环境变量</h3> <pre><code class="language-bash">export KAFKA_OPTS="-Djava.security.auth.login.config=/etc/jaas.conf -Djava.security.krb5.conf=/etc/krb5.conf"</code></pre> <h3>6. 代码示例</h3> <pre><code class="language-python">#!/usr/bin/env python # -*- coding:utf-8 -*- import os import time import json from kafka import KafkaProducer   def get_producer():     # 配置地址映射，127.0.0.1为示例     with open('/etc/hosts', 'r') as hosts:         if 'bigdata' not in hosts.read():             os.system('echo "127.0.0.1 kafka-point-01\n127.0.0.1 kafka-point-02\n127.0.0.1 kafka-point-03" &gt;&gt; /etc/hosts')      # kafka鉴权文件软链接到/etc目录     cur_dir = os.path.dirname(os.path.abspath(__file__))  # 自定义该目录     os.system('ln -fs %s/krb5.conf /etc/krb5.conf' % cur_dir)     os.system('ln -fs %s/kafka.keytab /etc/kafka.keytab' % cur_dir)     os.system('ln -fs %s/jaas.conf /etc/jaas.conf' % cur_dir)      # 生成kafka认证密钥，配置系统环境变量     os.system('kinit -kt /etc/kafka.keytab kafka/bigdata-test-01@TDH')     os.environ['KAFKA_OPTS'] = '-Djava.security.auth.login.config=/etc/jaas.conf -Djava.security.krb5.conf=/etc/krb5.conf'      producer = KafkaProducer(**{         'bootstrap_servers': ['127.0.0.1:9092', '127.0.0.1:9092', '127.0.0.1:9092'],         'security_protocol': 'SASL_PLAINTEXT',  # 安全协议         'sasl_mechanism': 'GSSAPI',  # SASL机制         'compression_type': 'gzip',  # 压缩方式，可选配置         'api_version': (0, 10, 2),  # API版本         'max_block_ms': 3000,  # 发送请求最大阻塞时间         'value_serializer': lambda value: json.dumps(value).encode(),  # 数据序列化方法         'sasl_kerberos_service_name': 'kafka'  # kerberos服务名称     })      # 等待0.5秒后检测是否连接成功了     time.sleep(0.5)     if not producer.bootstrap_connected():         raise Exception('Connect kafka failed')     return producer  # 因为底层socket的特性，多个进程或者同一进程下的多个线程无法共享一个producer，需要通过消息队列做生产者消费者模型 producer = get_producer() print(producer.send('kafka_topic', {'test': 'test_data'}, partition=0).get(timeout=1)) </code></pre> <h3>7. 注意的点</h3> <p style="text-indent:33px;">pip安装的依赖包是kafka-python，不是kafka，这两个都有，不要混淆了。</p> <p style="text-indent:33px;">因为底层socket的特性，多个进程或者同一进程下的多个线程无法共享一个producer，多线程多进程场景下可以使用redis作为消息中间件实现生产者消费者模型。</p> <p style="text-indent:33px;">使用get_producer获取一次认证后的连接就可以长期使用，票据过期不会导致后续的推送失败。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-45443.htm">动物疫苗的作用原理是什么（动物疫苗的概念）</a></p>
+                                        <p>下一个：<a href="/news/article-45955.htm">宠物领养人条件有哪些（宠物领养人条件有哪些呢）</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-node-share-links.htm" title="「11月22日」最高速度19.5M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月22日」最高速度19.5M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22426.htm" title="猫咪三针打完要多久能洗澡（猫咪三针疫苗打完多久可以绝育）">猫咪三针打完要多久能洗澡（猫咪三针疫苗打完多久可以绝育）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-clash.htm" title="「11月13日」最高速度18M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月13日」最高速度18M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36541.htm" title="node.js &#8211; 包、express">node.js &#8211; 包、express</a></li>
+                        <li class="py-2"><a href="/news/article-19222.htm" title="成都领养宠物中心电话地址（成都领养宠物中心电话地址）">成都领养宠物中心电话地址（成都领养宠物中心电话地址）</a></li>
+                        <li class="py-2"><a href="/news/article-34628.htm" title="springboot 定义统一返回结果">springboot 定义统一返回结果</a></li>
+                        <li class="py-2"><a href="/news/article-40489.htm" title="动物医院申请条件有哪些要求呢图片高清（动物医院办理条件）">动物医院申请条件有哪些要求呢图片高清（动物医院办理条件）</a></li>
+                        <li class="py-2"><a href="/news/article-41966.htm" title="Logback及其MDC功能详解">Logback及其MDC功能详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-v2ray.htm" title="「1月11日」最高速度22M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月11日」最高速度22M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33671.htm" title="王允海动物医院(道里店)怎么样（王允海宠物医院）">王允海动物医院(道里店)怎么样（王允海宠物医院）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
