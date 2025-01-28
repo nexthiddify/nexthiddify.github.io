@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-47416.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>java使用单循环链表解决约瑟夫问题</title>
+        <meta name="description" content="约瑟夫环问题，是一个经典的循环链表问题，题意是：已知 n 个人（以编号 1，2，3，…，n 分别表示）围坐在一张圆桌周围，从编号为 k 的人开始顺时针报数，数到 m 的那个人出列；他的下一个人又从 1" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-47416.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="java使用单循环链表解决约瑟夫问题" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/c073bc35b9e8b96faa39b3403f718da9.webp" />
+        <meta property="og:release_date" content="2025-01-28T09:32:24" />
+    <meta property="og:updated_time" content="2025-01-28T09:32:24" />
+        <meta property="og:description" content="约瑟夫环问题，是一个经典的循环链表问题，题意是：已知 n 个人（以编号 1，2，3，…，n 分别表示）围坐在一张圆桌周围，从编号为 k 的人开始顺时针报数，数到 m 的那个人出列；他的下一个人又从 1" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java使用单循环链表解决约瑟夫问题">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                                                        <a class="navbar-brand" href="/">Hiddify Next节点分享</a>
+                                                    </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>java使用单循环链表解决约瑟夫问题</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>约瑟夫环问题，是一个经典的循环链表问题，题意是：已知 n 个人（以编号 1，2，3，…，n 分别表示）围坐在一张圆桌周围，从编号为 k 的人开始顺时针报数，数到 m 的那个人出列；他的下一个人又从 1 还是顺时针开始报数，数到 m 的那个人又出列；依次重复下去，要求找到最后出列的那个人。</p> <p>例如有 5 个人，要求从编号为 1 的人开始，数到 2 的那个人出列：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/f425c688f6fb0602029ae378c831bcf4.jpg" alt="java使用单循环链表解决约瑟夫问题"></p> <p>出列顺序依次为：<br /> 编号为 1 的人开始数 1，然后 2 数 2，所以 2 先出列；<br /> 2 出列后，从 3 开始数 1，4 数 2，所以 4 出列；<br /> 4 出列后，从 5 开始数 1，1 数 2，所以 1 出列；<br /> 1 出列后，从 3 开始数 1，5 数 2，所以 5 出列；<br /> 最后只剩下 3 。</p> </h1> <h2> <a id="_14" rel="nofollow"></a>第一步</h2> <p>使用一个first指针指向最开始的数<br /> 使用一个current指针指向末尾的数<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/69301aa045373415cf20d6eb1329402c.jpg" alt="java使用单循环链表解决约瑟夫问题"></p> <h2> <a id="_18" rel="nofollow"></a>第二步</h2> <p>从 1 开始数2后，first指针和current指针同时顺时针向前移动（2-1）次:<br /> first = first.next;<br /> current = current.next;<br /> 得到下图:<img decoding="async" src="http://img.555519.xyz/uploads/20230109/e34c0795d355ef25ecff35d0841760d9.jpg" alt="java使用单循环链表解决约瑟夫问题"></p> <h2> <a id="_23" rel="nofollow"></a>第三步</h2> <p>此时已经确定出列的数字为 2。<br /> 将first指针再向前移动一次:first = first.next;<br /> 得到下图：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/6f70ce27ec2cf871ff46a4346980b387.jpg" alt="java使用单循环链表解决约瑟夫问题"><br /> 此时将current指针指向的结点的next域指向当前first指针向的结点：current.next = first;<br /> 得到下图：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/19bd890271bdf9dd1c40f328a484faae.jpg" alt="java使用单循环链表解决约瑟夫问题"><br /> 此时 2 结点就被排除在外了，由于java的垃圾回收机制，没有任何引用指向 2 结点，2结点会被回收。</p> <p><strong>然后往复2，3步直到剩下最后一个结点</strong></p> </h1> <pre><code class="prism language-java">    <span class="token comment">/**      * 约瑟夫问题      * @param oneCycleSingleLinkedList      * @param num      */</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">joseph</span><span class="token punctuation">(</span><span class="token class-name">OneCycleSingleLinkedList</span> oneCycleSingleLinkedList<span class="token punctuation">,</span> <span class="token keyword">int</span> num<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">//恰好再添加结点时，current就指向最后一个结点，first指向第一个结点，可以直接拿来用</span>         <span class="token class-name">Node2</span> current <span class="token operator">=</span> oneCycleSingleLinkedList<span class="token punctuation">.</span>current<span class="token punctuation">;</span>         <span class="token class-name">Node2</span> first <span class="token operator">=</span> oneCycleSingleLinkedList<span class="token punctuation">.</span>first<span class="token punctuation">;</span>         <span class="token keyword">while</span><span class="token punctuation">(</span>first<span class="token punctuation">.</span>next <span class="token operator">!=</span> first<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>             <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>                 first <span class="token operator">=</span> first<span class="token punctuation">.</span>next<span class="token punctuation">;</span>                 current <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">;</span>             <span class="token punctuation">}</span>             <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>             first <span class="token operator">=</span> first<span class="token punctuation">.</span>next<span class="token punctuation">;</span>             current<span class="token punctuation">.</span>next <span class="token operator">=</span> first<span class="token punctuation">;</span>         <span class="token punctuation">}</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <p><strong>跳出循环的条件是：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/894e8605964879b6d0be73c2f704567c.jpg" alt="java使用单循环链表解决约瑟夫问题"><br /> 最后一张图：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/a30c6b91c7e22b6a341be3e411f551ec.jpg" alt="java使用单循环链表解决约瑟夫问题"><br /> first和current指向的是同一个结点，<br /> 所以first.next = current.next = first,即first.next = first;<br /> 此时跳出循环</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46931.htm">兽医站和宠物医院哪个好（狗看病去兽医站还是宠物医院）</a></p>
+                                        <p>下一个：<a href="/news/article-47417.htm">拼多多无货源开店详细步骤（拼多多无货源开店玩法,全网最详细教程）</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-23340.htm" title="兰州哪里有宠物店?（兰州卖宠物的地方在哪）">兰州哪里有宠物店?（兰州卖宠物的地方在哪）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-ssr-subscribe.htm" title="「12月29日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月29日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-clash.htm" title="「10月17日」最高速度21M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月17日」最高速度21M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46450.htm" title="动物生物疫苗工资 动物生物疫苗工资高吗">动物生物疫苗工资 动物生物疫苗工资高吗</a></li>
+                        <li class="py-2"><a href="/news/article-37540.htm" title="从模型复杂度角度来理解过拟合现象">从模型复杂度角度来理解过拟合现象</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-v2ray.htm" title="「11月1日」最高速度22.2M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月1日」最高速度22.2M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-node-subscribe.htm" title="「10月10日」最高速度22.4M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月10日」最高速度22.4M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-free-ssr-node.htm" title="「10月23日」最高速度19M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月23日」最高速度19M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-node-share.htm" title="「12月19日」最高速度21.3M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月19日」最高速度21.3M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21975.htm" title="一元店货源从哪里进货（一元店进货渠道）">一元店货源从哪里进货（一元店进货渠道）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
