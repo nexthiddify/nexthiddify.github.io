@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-48893.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>java实现快速排序以及快速排序的原理</title>
+        <meta name="description" content="快速排序（Quick Sort）是对冒泡排序的一种改进，通过一趟排序将要排序的数据序列分成独立的两部分，其中一部分的所有数据比另一部分的所有数据都要小，然后按此方法对两部分数据分别进行快速排序，整个排" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-48893.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="java实现快速排序以及快速排序的原理" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/627b837d43d5fc7211d8d141f01f2f0f.webp" />
+        <meta property="og:release_date" content="2025-01-31T07:18:13" />
+    <meta property="og:updated_time" content="2025-01-31T07:18:13" />
+        <meta property="og:description" content="快速排序（Quick Sort）是对冒泡排序的一种改进，通过一趟排序将要排序的数据序列分成独立的两部分，其中一部分的所有数据比另一部分的所有数据都要小，然后按此方法对两部分数据分别进行快速排序，整个排" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java实现快速排序以及快速排序的原理">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                                                        <a class="navbar-brand" href="/">Hiddify Next节点分享</a>
+                                                    </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>java实现快速排序以及快速排序的原理</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>快速排序（Quick Sort）是对冒泡排序的一种改进，通过一趟排序将要排序的数据序列分成独立的两部分，其中一部分的所有数据比另一部分的所有数据都要小，然后按此方法对两部分数据分别进行快速排序，整个排序过程递归进行，最终使整个数据序列变成有序的数据序列。</p> <ol> <li>快速排序算法的原理<br /> 快速排序算法的原理是：选择一个关键值作为基准值（一般选择第1个元素为基准元素），将比基准值大的都放在右边的序列中，将比基准值小的都放在左边的序列中。具体的循环过程如下。<br /> （1）从后向前比较，用基准值和最后一个值进行比较。如果比基准值小，则交换位置；如果比基准值大，则继续比较下一个值，直到找到第1个比基准值小的值才交换位置。<br /> （2）在从后向前找到第1个比基准值小的值并交换位置后，从前向后开始比较。如果有比基准值大的，则交换位置；如果没有，则继续比较下一个，直到找到第1个比基准值大的值才交换位置。<br /> （3）重复执行以上过程，直到从前向后比较的索引大于等于从后向前比较的索引，则结束一次循环。这时对于基准值来说，左右两边都是有序的数据序列。<br /> （4）重复循环以上过程，分别比较左右两边的序列，直到整个数据序列有序。</li> </ol> <p>如下图所示是对数组[6,9,5,7,8]进行快速排序。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/8edb8716491c5a42bea0e35451d642cd.jpg" alt="java实现快速排序以及快速排序的原理"></p> <p>先以第1个元素6为基准值，从数组的最后一位从后向前比较（比较顺序为：8&gt;6、7&gt;6、5&lt;6），找到第1个比6小的数据5，然后进行第1次位置交换，即将数据6（索引为0）和数据5（索引为2）交换位置，之后基准值6位于索引2处；接着从前向后比较（比较顺序为：5&lt;6、9&gt;6），找到第1个比6大的数据9，然后进行第2次位置交换，即将数据6（索引为2）和数据9（索引为1）交换位置，交换后6位于索引1处；这时高位和低位都在6处，第一次递归完成。在第一次递归完成后，基准值6前面的数据都比6小，基准值6后面的数据都比6大。重复执行上述过程，直到整个数组有序。</p> <ol start="2"> <li>快速排序的java实现</li> </ol> <pre><code class="prism language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>*<span class="token punctuation">;</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">Solution</span><span class="token punctuation">{<!-- --></span><span class="token comment">/**      * 快速排序      * @param arr 数组      * @param low 最低位      * @param high 最高位      * @return 排序好的数组      */</span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">quickSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span><span class="token keyword">int</span> low<span class="token punctuation">,</span><span class="token keyword">int</span> high<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">int</span> left<span class="token operator">=</span> low<span class="token punctuation">;</span><span class="token comment">//从前向后比较的索引</span><span class="token keyword">int</span> right<span class="token operator">=</span> high<span class="token punctuation">;</span><span class="token comment">//从后向前比较的索引</span><span class="token keyword">int</span> key<span class="token operator">=</span> arr<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//基准值</span><span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span> right<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//从后向前比较</span><span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span> right<span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">&gt;=</span> key<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 right<span class="token operator">--</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//如果没有比基准值小的，则比较下一个，直到有比基准值小的，则交换位置，然后又从前向后比较</span><span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">&lt;=</span> key<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">int</span> temp<span class="token operator">=</span> arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>                 arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>                 arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span> temp<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//从前向后比较</span><span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span> right<span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">&lt;=</span> key<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 left<span class="token operator">++</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//如果没有比基准值大的，则比较下一个，直到有比基准值大的，则交换位置</span><span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">&gt;=</span> key<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">int</span> temp<span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>                 arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span> arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>                 arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">=</span> temp<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token comment">//此时第一次循环比较结束，基准值的位置已经确定。左边的值都比关键值小，右边的值都比关键值大，但是两边的顺序还有可能不一样，接着进行下面的递归调用</span><span class="token comment">//递归左边序列：从第一个索引位置到“关键值索引-1”</span><span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">&gt;</span> low<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>low<span class="token punctuation">,</span>left<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//递归右边序列：从“关键值索引+1”到最后一个位置</span><span class="token keyword">if</span><span class="token punctuation">(</span>right<span class="token operator">&lt;</span> high<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>high<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">return</span> arr<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token operator">=</span><span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>以上代码定义了名为quickSort()的快速排序方法，在该方法中定义了3个变量start、end和key，分别表示从前向后比较的索引、从后向前比较的索引和基准值。具体过程为：①通过while循环从后向前比较，找到比基准值小的，则交换位置；②通过while循环从前向后比较，找到比基准值大的，则交换位置；③根据从前向后比较的索引和从后向前比较的索引的大小不断递归调用，直到递归完成，返回排序后的结果。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48328.htm">瑞鹏宠物医院招聘信息（瑞鹏宠物医院招聘信息电话）</a></p>
+                                        <p>下一个：<a href="/news/article-48894.htm">宠物猫抓破皮了要紧吗（宠物猫抓破皮了要紧吗要打针吗）</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-25201.htm" title="福建农大动物医院没开了吗最近（福州农大动物医院怎么样）">福建农大动物医院没开了吗最近（福州农大动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-24521.htm" title="学生没钱怎么开网店卖东西赚钱呢（学生没钱怎么开网店卖东西赚钱呢）">学生没钱怎么开网店卖东西赚钱呢（学生没钱怎么开网店卖东西赚钱呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-clash-node.htm" title="「10月16日」最高速度19.9M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月16日」最高速度19.9M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27064.htm" title="前端面试题：手写用js的函数 实现和instanceof 一样的功能">前端面试题：手写用js的函数 实现和instanceof 一样的功能</a></li>
+                        <li class="py-2"><a href="/news/article-30127.htm" title="宠物求领养的创意宣传语（领养宠物的广告语）">宠物求领养的创意宣传语（领养宠物的广告语）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-clash-node-daily-updates.htm" title="「12月10日」最高速度22.8M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月10日」最高速度22.8M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-44955.htm" title="早间新闻第一季剧情（硬核推荐）早间新闻第一季第二集片尾曲，北京晚间新闻，新闻编辑室第一季，">早间新闻第一季剧情（硬核推荐）早间新闻第一季第二集片尾曲，北京晚间新闻，新闻编辑室第一季，</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-ssr-node.htm" title="「12月24日」最高速度20.1M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月24日」最高速度20.1M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46449.htm" title="Top 20 Docker 面试题（附答案）">Top 20 Docker 面试题（附答案）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-node-subscribe-links.htm" title="「1月20日」最高速度22.1M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月20日」最高速度22.1M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
