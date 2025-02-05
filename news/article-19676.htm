@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://nexthiddify.github.io/news/article-19676.htm" />
@@ -10,6 +10,36 @@
     <title>一、重写了equals为什么还要重写hashcode</title>
         <meta name="description" content="一、为什么重写了equals要重写hashcode? 有这么一个场景，当用户登录时，来了两个user，有name和age,并且还有手机号，手机号相同的我认为是一个用户。那么我们很容易得到以下代码: i" />
         <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-19676.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="一、重写了equals为什么还要重写hashcode" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/e98d93e7a4997d2f95d6c8c3f56f0ed3.webp" />
+        <meta property="og:release_date" content="2024-12-01T10:01:06" />
+    <meta property="og:updated_time" content="2024-12-01T10:01:06" />
+        <meta property="og:description" content="一、为什么重写了equals要重写hashcode? 有这么一个场景，当用户登录时，来了两个user，有name和age,并且还有手机号，手机号相同的我认为是一个用户。那么我们很容易得到以下代码: i" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="一、重写了equals为什么还要重写hashcode">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
     <!-- web-fonts -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -115,16 +145,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-20-shadowrocket-node.htm" title="「10月20日」最高速度22.6M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月20日」最高速度22.6M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-20-node-share.htm" title="「5月20日」最高速度19.2M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接">「5月20日」最高速度19.2M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-18-clash-node.htm" title="「5月18日」最高速度18M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接">「5月18日」最高速度18M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-16-node-share.htm" title="「9月16日」最高速度20.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「9月16日」最高速度20.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-ssr-subscribe.htm" title="「10月2日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「10月2日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-30-free-ssr-node.htm" title="「5月30日」最高速度19.3M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接">「5月30日」最高速度19.3M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-ssr-subscribe.htm" title="「12月29日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月29日」最高速度21.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-26-free-ssr-subscribe.htm" title="「6月26日」最高速度20.7M/S，2024年Hiddify Next每天更新免费节点订阅链接">「6月26日」最高速度20.7M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-26602.htm" title="动物疫苗接种时间表图片大全集高清（动物疫苗接种时间表图片大全集高清视频）">动物疫苗接种时间表图片大全集高清（动物疫苗接种时间表图片大全集高清视频）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-1-clash-node-daily-updates.htm" title="「9月1日」最高速度20.4M/S，2024年Hiddify Next每天更新免费节点订阅链接">「9月1日」最高速度20.4M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21974.htm" title="济南宠物领养活动有哪些（济南宠物领养活动有哪些地方）">济南宠物领养活动有哪些（济南宠物领养活动有哪些地方）</a></li>
+                        <li class="py-2"><a href="/news/article-36541.htm" title="node.js &#8211; 包、express">node.js &#8211; 包、express</a></li>
+                        <li class="py-2"><a href="/news/article-44459.htm" title="Python数据类型%s，%d，%f的用法">Python数据类型%s，%d，%f的用法</a></li>
+                        <li class="py-2"><a href="/news/article-35903.htm" title="南京宠物狗领养地址在哪里呀（南京宠物狗领养地址在哪里呀最近）">南京宠物狗领养地址在哪里呀（南京宠物狗领养地址在哪里呀最近）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-shadowrocket-node.htm" title="「12月27日」最高速度23M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月27日」最高速度23M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23804.htm" title="长沙宠物猫领养中心在哪里 长沙宠物猫领养中心在哪里啊">长沙宠物猫领养中心在哪里 长沙宠物猫领养中心在哪里啊</a></li>
+                        <li class="py-2"><a href="/news/article-38002.htm" title="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目">vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-clash-v2ray-ss-ssr.htm" title="「12月11日」最高速度18.3M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月11日」最高速度18.3M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe-links.htm" title="「11月24日」最高速度21.6M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月24日」最高速度21.6M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22428.htm" title="上海领养宠物狗的平台电话（上海领养狗狗机构）">上海领养宠物狗的平台电话（上海领养狗狗机构）</a></li>
                     </ul>
     </div>
 </div>
@@ -136,31 +166,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
