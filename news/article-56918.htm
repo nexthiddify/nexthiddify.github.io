@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-56918.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>python神经网络tf.name_scope和tf.variable_scope函数区别_python</title>
+        <meta name="description" content="目录  学习前言 两者区别 tf.variable_scope函数 测试代码  1、使用reuse=True共享变量 2、使用AUTO_REUSE共享变量     学习前言 最近在学目标检测……SSD" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-56918.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="python神经网络tf.name_scope和tf.variable_scope函数区别_python" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/e98d93e7a4997d2f95d6c8c3f56f0ed3.webp" />
+        <meta property="og:release_date" content="2025-02-15T05:22:07" />
+    <meta property="og:updated_time" content="2025-02-15T05:22:07" />
+        <meta property="og:description" content="目录  学习前言 两者区别 tf.variable_scope函数 测试代码  1、使用reuse=True共享变量 2、使用AUTO_REUSE共享变量     学习前言 最近在学目标检测……SSD" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python神经网络tf.name_scope和tf.variable_scope函数区别_python">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">
+                                                        <span>Hiddify Next</span>
+                                                        </a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>python神经网络tf.name_scope和tf.variable_scope函数区别_python</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">学习前言</a></li> <li><a href="#_label1" rel="nofollow">两者区别</a></li> <li><a href="#_label2" rel="nofollow">tf.variable_scope函数</a></li> <li><a href="#_label3" rel="nofollow">测试代码</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_3_0" rel="nofollow">1、使用reuse=True共享变量</a></li> <li><a href="#_lab2_3_1" rel="nofollow">2、使用AUTO_REUSE共享变量</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>学习前言</h2> <p>最近在学目标检测……SSD的源码好复杂……看了很多版本的SSD源码，发现他们会使用tf.variable_scope，刚开始我还以为就是tf.name_scope，才发现原来两者是不一样的</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>两者区别</h2> <p>tf.name_scope()和tf.variable_scope()是两个作用域，一般与两个创建/调用变量的函数tf.variable() 和tf.get_variable()搭配使用。</p> <p>为什么要使用两个不同的作用域方式呢？其主要原因与变量共享相关。</p> <p>变量共享主要涉及两个函数：tf.Variable() 和tf.get_variable()</p> <p>在tf.variable_scope的作用域下需要使用tf.get_variable()函数，这是因为tf.get_variable()拥有一个变量检查机制，会检测已经存在的变量是否设置为共享变量，当同名变量存在共享机制时，不会报错，如果并未设置为共享变量，则报错。</p> <p>如果使用tf.Variable() 的话每次都会新建变量。但是很多时候我们希望重用一些变量，所以我们使用到了get_variable()，它会去搜索变量名，有就直接用，没有再新建。<br />在进行变量共享的时候需要使用到标志reuse，当reuse = True时是可以共享，False时不可以共享。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>tf.variable_scope函数</h2> <div class="ay1code"> <pre class="brush:py;">tf.variable_scope(      name_or_scope,      default_name=None,      values=None,      initializer=None,      regularizer=None,      caching_device=None,      partitioner=None,      custom_getter=None,      reuse=None,      dtype=None,      use_resource=None,      constraint=None,      auxiliary_name_scope=True  )  </pre> </div> <p>其中：</p> <p>1、name_or_scope：范围的名称。</p> <p>2、default_name：如果name_or_scope参数为None，则使用默认的名称，该名称将是唯一的；如果提供了name_or_scope，它将不会被使用，因此它不是必需的，并且可以是None。</p> <p>3、values：传递给操作函数的Tensor参数列表。</p> <p>4、initializer：此范围内变量的默认初始值设定项。</p> <p>5、regularizer：此范围内变量的默认正规化器。</p> <p>6、caching_device：此范围内变量的默认缓存设备。</p> <p>7、partitioner：此范围内变量的默认分区程序。</p> <p>8、custom_getter：此范围内的变量的默认自定义吸气。</p> <p>9、reuse：可以是True、None或tf.AUTO_REUSE；如果是True，即可以开始共享变量，变量重构用；如果是tf.AUTO_REUSE，则我们创建变量（如果它们不存在），否则返回它们（用于在第一轮创建变量）；如果是None，则我们继承父范围的重用标志。</p> <p>10、dtype：在此范围中创建的变量类型。</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>测试代码</h2> <p class="maodian"><a name="_lab2_3_0" rel="nofollow"></a></p> <h3>1、使用reuse=True共享变量</h3> <div class="ay1code"> <pre class="brush:py;">import tensorflow as tf  # 初始化第一个v1  with tf.variable_scope("scope1"):      v1 = tf.get_variable("v1",[3,3],tf.float32,initializer=tf.constant_initializer(1))      print(v1.name)  # 不同的作用域  with tf.variable_scope("scope2"):      v1 = tf.get_variable("v1",[3,3],tf.float32,initializer=tf.constant_initializer(1))      print(v1.name)  # 开始共享  with tf.variable_scope("scope1",reuse = True):      v1_share = tf.get_variable("v1",[3,3],tf.float32,initializer=tf.constant_initializer(1))      print(v1_share.name)  </pre> </div> <p>运行结果为：</p> <blockquote> <p>scope1/v1:0<br />scope2/v1:0<br />scope1/v1:0</p> </blockquote> <p>如果在下部再加上</p> <div class="ay1code"> <pre class="brush:py;">with tf.variable_scope("scope2"):      v1_share = tf.get_variable("v1",[3,3],tf.float32,initializer=tf.constant_initializer(1))      print(v1_share.name)  </pre> </div> <p>此时没有reuse，不能共享，程序报错。</p> <p class="maodian"><a name="_lab2_3_1" rel="nofollow"></a></p> <h3>2、使用AUTO_REUSE共享变量</h3> <div class="ay1code"> <pre class="brush:py;">import tensorflow as tf  # 使用AUTO_REUSE可以直接创建  # 如果reuse = True，初始化第一轮创建的时候会报错  def demo():    with tf.variable_scope("demo", reuse=tf.AUTO_REUSE):      v = tf.get_variable("v", [1])    return v  v1 = demo()   v2 = demo()  print(v1.name)  </pre> </div> <p>运行结果为：</p> <blockquote> <p>demo/v:0<br />demo/v:0</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-56917.htm">mysqlbinlog 命令解析binlog文件</a></p>
+                                        <p>下一个：<a href="/news/article-57475.htm">中国十大宠物粮上市公司排名前十名有哪些（中国宠物粮生产企业）</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-node-share-links.htm" title="「12月6日」最高速度21M/S，2024年Hiddify Next每天更新免费节点订阅链接">「12月6日」最高速度21M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-node-subscribe.htm" title="「11月20日」最高速度18.5M/S，2024年Hiddify Next每天更新免费节点订阅链接">「11月20日」最高速度18.5M/S，2024年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30128.htm" title="兽用疫苗运输与储存规范（兽用疫苗管理）">兽用疫苗运输与储存规范（兽用疫苗管理）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-node-share.htm" title="「1月13日」最高速度19.5M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月13日」最高速度19.5M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-shadowrocket-node.htm" title="「1月6日」最高速度18.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月6日」最高速度18.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43460.htm" title="邮寄宠物猫怎么收费（邮寄猫猫）">邮寄宠物猫怎么收费（邮寄猫猫）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-free-subscribe-node.htm" title="「1月30日」最高速度22.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月30日」最高速度22.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19222.htm" title="成都领养宠物中心电话地址（成都领养宠物中心电话地址）">成都领养宠物中心电话地址（成都领养宠物中心电话地址）</a></li>
+                        <li class="py-2"><a href="/news/article-45954.htm" title="python推送数据到kafka的kerberos服务验证（ubuntu）">python推送数据到kafka的kerberos服务验证（ubuntu）</a></li>
+                        <li class="py-2"><a href="/news/article-24737.htm" title="动物疫苗打几次有效果呢（动物疫苗打几次有效果呢知乎）">动物疫苗打几次有效果呢（动物疫苗打几次有效果呢知乎）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
