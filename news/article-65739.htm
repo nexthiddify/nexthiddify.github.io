@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-65739.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>vue跳转方式及传参 (包括打开新窗口)</title>
+        <meta name="description" content="本文实例讲述了vue跳转方式（打开新页面）及传参操作。分享给大家供大家参考，具体如下： 1. router-link跳转 // 直接写上跳转的地址&lt;router-linkto="/detail/" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-65739.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="vue跳转方式及传参 (包括打开新窗口)" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/6bc02cd3d61f270d52919fbd05f22b30.webp" />
+        <meta property="og:release_date" content="2025-03-02T09:36:55" />
+    <meta property="og:updated_time" content="2025-03-02T09:36:55" />
+        <meta property="og:description" content="本文实例讲述了vue跳转方式（打开新页面）及传参操作。分享给大家供大家参考，具体如下： 1. router-link跳转 // 直接写上跳转的地址&lt;router-linkto="/detail/" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue跳转方式及传参 (包括打开新窗口)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">
+                                                        <span>Hiddify Next</span>
+                                                        </a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>vue跳转方式及传参 (包括打开新窗口)</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>本文实例讲述了vue跳转方式（打开新页面）及传参操作。分享给大家供大家参考，具体如下：</p> <h2><a id="1_routerlink_2" rel="nofollow"></a>1. router-link跳转</h2> <pre><code class="prism language-html">// 直接写上跳转的地址<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span><span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/detail/one<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>spanfour<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>link跳转<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span> // 添加参数<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span><span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{path:<span class="token punctuation">'</span>/detail/two<span class="token punctuation">'</span>, query:{id:1，name:<span class="token punctuation">'</span>vue<span class="token punctuation">'</span>}}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span> // 参数获取 id = this.$route.query.id // 新窗口打开<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span><span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{path:<span class="token punctuation">'</span>/detail/three<span class="token punctuation">'</span>, query:{id:1，name:<span class="token punctuation">'</span>vue<span class="token punctuation">'</span>}}<span class="token punctuation">"</span></span><span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span></code></pre> <h2><a id="2_thisrouterpush_17" rel="nofollow"></a>2. this.$router.push跳转</h2> <pre><code class="prism language-javascript"><span class="token function">toDeail</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>path<span class="token punctuation">:</span><span class="token string">"/detail"</span><span class="token punctuation">,</span> query<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>id<span class="token punctuation">:</span> e<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token comment">// 参数获取</span> id<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id<span class="token function">toDeail</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>name<span class="token punctuation">:</span><span class="token string">"/detail"</span><span class="token punctuation">,</span> params<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>id<span class="token punctuation">:</span> e<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token comment">// 注意地址需写在 name后面</span><span class="token comment">//用params传参时 要填router的name 不能用path</span><span class="token comment">//参数获取，params和query区别，query参数在地址栏显示，params的参数不在地址栏显示</span> id<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id</code></pre> <h2><a id="3_thisrouterreplace_32" rel="nofollow"></a>3. this.$router.replace跳转</h2> <pre><code class="prism language-javascript"><span class="token comment">//和push的区别，push有记录一个history，replace没有</span><span class="token function">toDeail</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>name<span class="token punctuation">:</span><span class="token string">'/detail'</span><span class="token punctuation">,</span> params<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>id<span class="token punctuation">:</span> e<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <h2><a id="4_resolve_39" rel="nofollow"></a>4. resolve跳转</h2> <pre><code class="prism language-javascript"><span class="token comment">//resolve页面跳转可用新页面打开</span><span class="token comment">//2.1.0版本后，使用路由对象的resolve方法解析路由，可以得到location、router、href等目标路由的信息。得到href就可以使用window.open开新窗口了（这边应用：https://segmentfault.com/q/1010000009557100下的一个回答）</span><span class="token function">toDeail</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">const</span><span class="token keyword">new</span><span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>name<span class="token punctuation">:</span><span class="token string">'/detail'</span><span class="token punctuation">,</span> params<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>id<span class="token punctuation">:</span> e<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>   window<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token punctuation">.</span>href<span class="token punctuation">,</span><span class="token string">'_blank'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-javascript">接收方怎么接收参数<span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>serid和<span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>setid，以下举一个接收的例子 注意接收参数时是 $route 不是 $router<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>     testDemo<span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>setid<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>  接收的参数<span class="token punctuation">:</span><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>userlist<span class="token operator">--</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>mallCode<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span>   name<span class="token punctuation">:</span><span class="token string">"UserList"</span><span class="token punctuation">,</span>   date<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token string">"mallCode"</span><span class="token punctuation">:</span>mallCode<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">getParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 取到路由带过来的参数</span><span class="token keyword">const</span> routerParams<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>mallCode<span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>mallCode<span class="token operator">=</span> routerParams<span class="token punctuation">;</span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 将数据放在当前组件的数据内</span><span class="token comment">//this.mallInfo.searchMap.mallCode = routerParams;</span><span class="token comment">//this.keyupMallName()</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span class="token operator">&lt;</span>style scoped<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span></code></pre> <p>希望本文所述对大家vue.js程序设计有所帮助。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-65738.htm">Vant indexBar 索引栏用法和搜索条件的功能</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-39985.htm" title="南京农大动物医院院长（南京农大动科院院长）">南京农大动物医院院长（南京农大动科院院长）</a></li>
+                        <li class="py-2"><a href="/news/article-63313.htm" title="如果我在封闭的一组INTERVAL单位值中只写入一个值，MySQL将返回什么？">如果我在封闭的一组INTERVAL单位值中只写入一个值，MySQL将返回什么？</a></li>
+                        <li class="py-2"><a href="/news/article-27986.htm" title="avframe转byte数组_Spring Boot图片文件转Base64">avframe转byte数组_Spring Boot图片文件转Base64</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-ssr-subscribe.htm" title="「2月17日」最高速度22.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「2月17日」最高速度22.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-53613.htm" title="北京宠爱国际动物医疗机构（北京宠爱国际医院怎么样）">北京宠爱国际动物医疗机构（北京宠爱国际医院怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-47416.htm" title="java使用单循环链表解决约瑟夫问题">java使用单循环链表解决约瑟夫问题</a></li>
+                        <li class="py-2"><a href="/news/article-33211.htm" title="pyecharts绘制桑基图实现节点颜色自定义">pyecharts绘制桑基图实现节点颜色自定义</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-shadowrocket-node.htm" title="「1月6日」最高速度18.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月6日」最高速度18.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-64525.htm" title="动物疫苗前景分析报告 动物疫苗前景分析报告怎么写">动物疫苗前景分析报告 动物疫苗前景分析报告怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-21507.htm" title="东北农业大学动物医学院附属医院招聘（东北农业大学动物医学院官网）">东北农业大学动物医学院附属医院招聘（东北农业大学动物医学院官网）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
