@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-71571.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>SpringBoot定时任务Scheduled简易使用及动态多任务使用</title>
+        <meta name="description" content="一。引入了spring-boot-starter包即可，无需额外jar包：         &lt;dependency&gt;             &lt;groupId&gt;org.spri" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-71571.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="SpringBoot定时任务Scheduled简易使用及动态多任务使用" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/e2fda83f11bc5e7fd6bb71d2398b749f.webp" />
+        <meta property="og:release_date" content="2025-03-11T07:47:25" />
+    <meta property="og:updated_time" content="2025-03-11T07:47:25" />
+        <meta property="og:description" content="一。引入了spring-boot-starter包即可，无需额外jar包：         &lt;dependency&gt;             &lt;groupId&gt;org.spri" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot定时任务Scheduled简易使用及动态多任务使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">
+                                                        <span>Hiddify Next</span>
+                                                        </a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>SpringBoot定时任务Scheduled简易使用及动态多任务使用</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>一。引入了spring-boot-starter包即可，无需额外jar包：</p> <pre class="has"><code class="language-html">        &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;         &lt;/dependency&gt;</code></pre> <p>二。启动类添加注解@EnableScheduling：</p> <pre class="has"><code class="language-java">@SpringBootApplication//@EnableAutoConfiguration&nbsp; @EnableScheduling//支持定时任务 public class SpringBootApplication {  &nbsp; &nbsp; public static void main(String[] args) { &nbsp; &nbsp; &nbsp; &nbsp; SpringApplication.run(SpringBootApplication.class, args); &nbsp; &nbsp; }  }</code></pre> <p>三。定时任务代码编写：</p> <pre class="has"><code class="language-java">import org.springframework.scheduling.annotation.Scheduled; import org.springframework.stereotype.Component;  import java.util.Date;   @Component public class DemoSchedule {      @Scheduled(cron = "0 0/1 * * * ?")//每隔一分钟执行     public void test1() {         System.out.println("定时任务执行：" + new Date());     }      }</code></pre> <p>其中，cron表达式是spring内置支持的时间表达式，详解待续，可百度“在线cron”，帮你自动生成。&nbsp;</p> <p>&nbsp;</p> <p>上面使用的定时任务很简单，但是有缺点：</p> <p>多个定时任务使用的是同一个调度线程，所以任务是阻塞执行的，执行效率不高。如果出现任务阻塞，导致一些场景的定时计算没有实际意义，比如每天12点的一个计算任务被阻塞到1点去执行，会导致结果并非我们想要的。</p> <p>解决方式1：替换默认线程池，默认线程池只有一个线程：</p> <pre class="has"><code class="language-java">@Configuration public class ScheduledConfig implements SchedulingConfigurer {      @Autowired     private TaskScheduler myThreadPoolTaskScheduler;      @Override     public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {         //简单粗暴的方式直接指定         //scheduledTaskRegistrar.setScheduler(Executors.newScheduledThreadPool(2));         //也可以自定义的线程池，方便线程的使用与维护         scheduledTaskRegistrar.setTaskScheduler(myThreadPoolTaskScheduler);     }      @Bean(name = "myThreadPoolTaskScheduler")     public TaskScheduler getMyThreadPoolTaskScheduler() {         ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();         taskScheduler.setPoolSize(20);//定时任务数量需小于池大小。否则，还是会有定时任务等待执行         taskScheduler.setThreadNamePrefix("taskScheduler-");         taskScheduler.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());         //调度器shutdown被调用时等待当前被调度的任务完成         taskScheduler.setWaitForTasksToCompleteOnShutdown(true);         //等待时长         taskScheduler.setAwaitTerminationSeconds(60);         return taskScheduler;     } }</code></pre> <p>解决方式2：方式一的本质改变了任务调度器默认使用的线程池，接下来这种是不改变调度器的默认线程池，而是把任务交给一个异步线程池去执行：</p> <p>首先在启动类上添加@EnableAsync 注解开启异步任务支持<br /> 然后在定时任务的方法加上@Async即可，默认使用的线程池为SimpleAsyncTaskExecutor（该线程池默认来一个任务创建一个线程，就会不断创建大量线程，极有可能压爆服务器内存。当然它有自己的限流机制，这里就不多说了）<br /> 项目中为了更好的控制线程的使用，我们可以自定义我们自己的线程池，使用方式@Async("myThreadPool")</p> <pre class="has"><code>  @Scheduled(fixedRate = 1000*10,initialDelay = 1000*20)   @Async("myThreadPoolTaskExecutor")   //@Async   public void scheduledTest02(){       System.out.println(Thread.currentThread().getName()+"---&gt;xxxxx---&gt;"+Thread.currentThread().getId());   }    //自定义线程池   @Bean(name = "myThreadPoolTaskExecutor")   public TaskExecutor  getMyThreadPoolTaskExecutor() {       ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();       taskExecutor.setCorePoolSize(20);//定时任务能够同时执行的线程数。定时任务数量需小于池大小。否则，还是会有定时任务等待执行       taskExecutor.setMaxPoolSize(200);//定时任务能被同时调度的数量。调度后不一定马上执行，取决于上面的corePoolSize       taskExecutor.setQueueCapacity(25);       taskExecutor.setKeepAliveSeconds(200);       taskExecutor.setThreadNamePrefix("Haina-ThreadPool-");       // 线程池对拒绝任务（无线程可用）的处理策略，目前只支持AbortPolicy、CallerRunsPolicy；默认为后者       taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());       //调度器shutdown被调用时等待当前被调度的任务完成       taskExecutor.setWaitForTasksToCompleteOnShutdown(true);       //等待时长       taskExecutor.setAwaitTerminationSeconds(60);       taskExecutor.initialize();       return taskExecutor;   }</code></pre> <p>&nbsp;</p> <p>上面能够解决多定时任务的阻塞问题，但如果多定时任务同时还是动态的呢？即cron表达式动态传入呢？</p> <p>1.自定义定时任务调度线程池注入spring。默认线程池只有一个线程。</p> <p>2.实现SchedulingConfigurer接口。多个任务编写多个类实现SchedulingConfigurer接口即可。</p> <pre class="has"><code class="language-java">@Configuration public class ThreadPoolTaskSchedulerConfig {      //自定义定时任务调度线程池注入spring     @Bean     public ThreadPoolTaskScheduler threadPoolTaskScheduler() {         ThreadPoolTaskScheduler threadPoolTaskScheduler = new ThreadPoolTaskScheduler();         threadPoolTaskScheduler.setPoolSize(20);//定时任务数量需小于池大小。否则，可能会有定时任务等待执行         threadPoolTaskScheduler.setThreadNamePrefix("taskScheduler-");         threadPoolTaskScheduler.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());         threadPoolTaskScheduler.setWaitForTasksToCompleteOnShutdown(true);//调度器shutdown被调用时等待当前被调度的任务完成         threadPoolTaskScheduler.setAwaitTerminationSeconds(60);//等待时长         return threadPoolTaskScheduler;     }  }</code></pre> <pre class="has"><code class="language-java">@Component public class MySchedulingConfigurer implements SchedulingConfigurer {      @Override     public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {         scheduledTaskRegistrar.addTriggerTask(task(), trigger());     }      private Runnable task() {         return new Runnable() {             @Override             public void run() {                 //业务逻辑部分                 System.out.println("task1 ==== I am going:" + LocalDateTime.now());             }         };     }      private Trigger trigger() {         return new Trigger() {             @Override             public Date nextExecutionTime(TriggerContext triggerContext) {                 //每一次任务触发，都会执行这里的方法一次，重新获取下一次的执行时间。所以它是下下次才生效的，即不是实时生效                 String cron = "0/10 * * * * ?";//10秒执行一次,动态注入：这里改为从数据库获取表达式就可以了                 CronTrigger cronTrigger = new CronTrigger(cron);                 Date date = cronTrigger.nextExecutionTime(triggerContext);                 return date;             }         };     }  }</code></pre> <p>以上spring task动态定时任务缺点很明显，时间修改后不能马上生效，要等到下次执行加载Trigger后更新cron，下下次才会生效，所以想要即时生效就得用Quartz了！可参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/yzh_1346983557/article/details/103990044"  rel="nofollow">https://blog.csdn.net/yzh_1346983557/article/details/103990044</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-70909.htm">Spring Cloud 集成 Sleuth+Zipkin+Mysql</a></p>
+                                        <p>下一个：<a href="/news/article-71573.htm">宠乐康动物医院电话（宠乐康宠物医院怎么样）</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-shadowrocket-node.htm" title="「3月7日」最高速度18.2M/S，2025年Hiddify Next每天更新免费节点订阅链接">「3月7日」最高速度18.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-50937.htm" title="关于vue中api统一管理的那些事_vue.js_">关于vue中api统一管理的那些事_vue.js_</a></li>
+                        <li class="py-2"><a href="/news/article-42469.htm" title="大型饲料颗粒机生产厂家（饲料颗粒机十强企业）">大型饲料颗粒机生产厂家（饲料颗粒机十强企业）</a></li>
+                        <li class="py-2"><a href="/news/article-51478.htm" title="实现垂直居中的几种方式">实现垂直居中的几种方式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-shadowrocket-node.htm" title="「1月6日」最高速度18.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月6日」最高速度18.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-clash-subscribe.htm" title="「1月17日」最高速度18.2M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月17日」最高速度18.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-v2ray.htm" title="「1月11日」最高速度22M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月11日」最高速度22M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-clash-windows.htm" title="「2月23日」最高速度21.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「2月23日」最高速度21.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-free-node-subscribe-links.htm" title="「2月9日」最高速度22.5M/S，2025年Hiddify Next每天更新免费节点订阅链接">「2月9日」最高速度22.5M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-65739.htm" title="vue跳转方式及传参 (包括打开新窗口)">vue跳转方式及传参 (包括打开新窗口)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
