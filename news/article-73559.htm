@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-73559.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Java 带参数与带返回值的方法的定义和调用_java_</title>
+        <meta name="description" content="目录  带参数方法的定义和调用  形参和实参 带参数方法练习  带返回值的方法的定义和调用  带返回值的方法定义 带返回值的方法调用     带参数方法的定义和调用  形参和实参 形参：方法定义中的参" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-73559.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="Java 带参数与带返回值的方法的定义和调用_java_" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/2281e31c834e5997764b4bd2aae4afc7.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:05:48" />
+    <meta property="og:updated_time" content="2025-03-14T07:05:48" />
+        <meta property="og:description" content="目录  带参数方法的定义和调用  形参和实参 带参数方法练习  带返回值的方法的定义和调用  带返回值的方法定义 带返回值的方法调用     带参数方法的定义和调用  形参和实参 形参：方法定义中的参" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java 带参数与带返回值的方法的定义和调用_java_">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">
+                                                        <span>Hiddify Next</span>
+                                                        </a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Java 带参数与带返回值的方法的定义和调用_java_</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">带参数方法的定义和调用</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">形参和实参</a></li> <li><a href="#_lab2_0_1" rel="nofollow">带参数方法练习</a></li> </ul> <li><a href="#_label1" rel="nofollow">带返回值的方法的定义和调用</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_2" rel="nofollow">带返回值的方法定义</a></li> <li><a href="#_lab2_1_3" rel="nofollow">带返回值的方法调用</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>带参数方法的定义和调用</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>形参和实参</h3> <p>形参：方法定义中的参数</p> <p>           相当于变量定义格式，例int number</p> <p>实参：方法调用中参数</p> <p>           等同于变量或常量，例如10   ， number</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>带参数方法练习</h3> <p>需求： 设计一个方法用于打印两个数中最大数，数据来自于方法参数</p> <p>思路：</p> <p>1.定义一个方法,用于打印两个书中的最大数,例如getMax()</p> <div class="ay1code"> <pre class="brush:java;">public static void getMax( ){  }</pre> </div> <p>2.为方法定义两个参数，用于接收数据</p> <div class="ay1code"> <pre class="brush:java;">public static void getMax(int a,int b){  }</pre> </div> <p>3.使用分支语句分两种情况对数字的大小关系进行处理；</p> <div class="ay1code"> <pre class="brush:java;">if (a&gt;b){            system.out.println(a);  }else{            system.out.printf(b);</pre> </div> <p>4.在main方法中调用定义好的方法（使用常量）</p> <div class="ay1code"> <pre class="brush:java;">public static void main（String[ ] args）{  //直接传递常量            getMax（10,20）；  }</pre> </div> <p>5.在main方法中调用定义好的方法（使用变量）</p> <div class="ay1code"> <pre class="brush:java;">public static void main（String[ ] args）{  //定义变量，传递          int a=10；          int b=20；          getMax（a,b）;  }</pre> </div> <p>代码示例：</p> <div class="ay1code"> <pre class="brush:java;">public static void main(String[] args) {  		// TODO Auto-generated method stub  		getMax(10, 20);//使用常量  		int a=10;  		int b=20;  		getMax(a, b);//使用变量  	}     	public static void getMax(int a,int b){  		if (a&gt;b){  			System.out.println(a);  		}else{  			System.out.println(b);  		}  	}</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>带返回值的方法的定义和调用</h2> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>带返回值的方法定义</h3> <p>格式：</p> <blockquote> <p>public static 数据类型       方法名（参数）{<!-- --></p> <p>           return 数据;</p> <p>}</p> </blockquote> <p>范例：</p> <blockquote> <p>public static boolean isEvenNumber（int number）{<!-- --></p> <p>              return true;</p> <p>}</p> </blockquote> <p>范例2：</p> <blockquote> <p>public static int getMax（int a，int b）{<!-- --></p> <p>             return 100；    </p> <p> }</p> </blockquote> <p>注意：方法定义时return 后面的返回值与方法定义上的数据类型相匹配，否则程序报错</p> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>带返回值的方法调用</h3> <p>格式：</p> <blockquote> <p>方法名（参数）；</p> </blockquote> <p>范例：</p> <blockquote> <p>isEvenNumber(5);</p> </blockquote> <p>格式2：</p> <blockquote> <p>数据类型  变量名  =  方法名（参数）；</p> </blockquote> <p>范例：</p> <blockquote> <p>boolean   Number   =  isEvennumber（5）；</p> </blockquote> <p>注意：</p> <p>方法的返回值通常会使用变量接收，否则该返回值将无意义</p> <p>示例代码：定义一个方法，该方法接收一个参数，判断该数据是否为偶数，并返回true or false</p> <div class="ay1code"> <pre class="brush:java;">public static void main(String[] args) {  		//数据类型 变量名 = 方法名(参数)  		boolean flag= isEvenNumber(10);  		System.out.println(flag);  	}  	public static boolean isEvenNumber(int number) {  		if(number%2==0){  			return true;  		}else{  			return false;  		}  	}</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73558.htm">关于Windows系列密码抓取</a></p>
+                                        <p>下一个：<a href="/news/article-74244.htm">@Valid 参数校验不生效问题解决</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-70250.htm" title="vue 修饰符">vue 修饰符</a></li>
+                        <li class="py-2"><a href="/news/article-64525.htm" title="动物疫苗前景分析报告 动物疫苗前景分析报告怎么写">动物疫苗前景分析报告 动物疫苗前景分析报告怎么写</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-24-free-ssr-subscribe.htm" title="「2月24日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「2月24日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-69609.htm" title="同安流浪狗救助站在哪里（同安流浪狗救助站在哪里办理）">同安流浪狗救助站在哪里（同安流浪狗救助站在哪里办理）</a></li>
+                        <li class="py-2"><a href="/news/article-52538.htm" title="昆明什么地方可以领养狗狗（昆明在哪里可以领养狗）">昆明什么地方可以领养狗狗（昆明在哪里可以领养狗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-clash-v2ray-ss-ssr.htm" title="「1月12日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月12日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-clash.htm" title="「2月13日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接">「2月13日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-48326.htm" title="动物疫苗打一次管多长时间有效果 动物疫苗打一次管多长时间有效果呢">动物疫苗打一次管多长时间有效果 动物疫苗打一次管多长时间有效果呢</a></li>
+                        <li class="py-2"><a href="/news/article-43943.htm" title="动物疫苗去哪里买便宜点 动物疫苗去哪里买便宜点呢">动物疫苗去哪里买便宜点 动物疫苗去哪里买便宜点呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-clash.htm" title="「1月16日」最高速度22.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月16日」最高速度22.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
