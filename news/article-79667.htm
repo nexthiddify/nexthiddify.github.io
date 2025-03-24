@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-79667.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>设计模式学习笔记桥接模式及其应用</title>
+        <meta name="description" content="桥接（Bridge）模式是指将抽象部分与实现部分相分离，使它们都可以独立的发生变化。 一、桥接模式介绍 我们知道，抽象部分一般与实现部分连接有两种方式：继承和实现。那么如何将其解耦分离，桥接模式提供一" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-79667.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="设计模式学习笔记桥接模式及其应用" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/8e65f2a3139f96cf5093e7e5047d250f.webp" />
+        <meta property="og:release_date" content="2025-03-23T08:23:00" />
+    <meta property="og:updated_time" content="2025-03-23T08:23:00" />
+        <meta property="og:description" content="桥接（Bridge）模式是指将抽象部分与实现部分相分离，使它们都可以独立的发生变化。 一、桥接模式介绍 我们知道，抽象部分一般与实现部分连接有两种方式：继承和实现。那么如何将其解耦分离，桥接模式提供一" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="设计模式学习笔记桥接模式及其应用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">
+                                                        <span>Hiddify Next</span>
+                                                        </a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>设计模式学习笔记桥接模式及其应用</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>桥接（Bridge）模式是指将抽象部分与实现部分相分离，使它们都可以独立的发生变化。</p> <h2 id="一桥接模式介绍">一、桥接模式介绍</h2> <p>我们知道，抽象部分一般与实现部分连接有两种方式：继承和实现。那么如何将其解耦分离，桥接模式提供一种方式，也就是将强关联转为弱关联，将继承转换为组合关系。如下图所示，取消两者的继承关系，改用组合关系：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4bf53d4fec0ed0b4a79395feef675558.jpg" alt="设计模式学习笔记桥接模式及其应用"></p> <h3 id="11-桥接模式的结构">1.1 桥接模式的结构</h3> <p>我们可以看看桥接模式是怎么解耦，利用组合连接抽象和实现部分，如下所示：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d34c1492bb4ab48d3e8839c4e7c18913.jpg" alt="设计模式学习笔记桥接模式及其应用"></p> <p>其结构中包含如下角色：</p> <ul> <li><code>Abstraction</code>：抽象化角色，定义抽象类，包含一个对实现化对象的引用（组合）</li> <li><code>RefinedAbstraction</code>：扩展抽象化角色，实现抽象化角色的子类，由此通过组合关系调用实现化角色中的业务方法</li> <li><code>Implementor</code>：实现化角色的接口，供扩展抽象化角色调用</li> <li><code>ImplementorA、ImplementorB</code>：实现化角色的具体实现</li> </ul> <h3 id="12-桥接模式的实现">1.2 桥接模式的实现</h3> <p>我们可以根据上面的UML图实现对应的代码：</p> <pre><code class="language-java">//客户端类 public class Client {     public static void main(String[] args) {         Implementor imple = new ImplementorA();         Abstraction abs = new RefinedAbstraction(imple);         abs.Operation();     } } //实现化角色 interface Implementor {     public void OperationImpl(); } //具体的实现化角色 class ImplementorA implements Implementor {     public void OperationImpl() {         System.out.println("我是具体实现化角色A");     } } class ImplementorB implements Implementor {     public void OperationImpl() {         System.out.println("我是具体实现化角色B");     } } //抽象化角色 abstract class Abstraction {     protected Implementor imple;          protected Abstraction(Implementor imple) {         this.imple = imple;     }          public abstract void Operation(); } //扩展抽象化角色 class RefinedAbstraction extends Abstraction {     protected RefinedAbstraction(Implementor imple) {         super(imple);     }          public void Operation() {         System.out.println("扩展抽象化角色被访问");         imple.OperationImpl();     } }</code></pre> <p>实现结果：</p> <pre><code>扩展抽象化角色被访问 我是具体实现化角色A</code></pre> <h2 id="二桥接模式的应用场景">二、桥接模式的应用场景</h2> <h3 id="21-jdbc-驱动器">2.1 JDBC 驱动器</h3> <p>JDBC为所有的关系型数据库提供一个通用的标准，这就是一个桥接模式的典型应用。我们先回顾一下JDBC的使用，用JDBC连接MySQL数据库主要分为这样几步：</p> <pre><code class="language-java">//1.加载MySQL驱动注入到DriverManager Class.forName("com.mysql.cj.jdbc.Driver"); //2.提供JDBC连接的URL、用户名和密码 String url = "jdbc:mysql://localhost:3306/test_db?"; String username = "root"; String password = "root"; //3.创建数据库的连接 Connection connection = DriverManager.getConnection(url, username, password); //4.创建statement实例 Statement statement = connection.createStatement(); //5.执行SQL语句 String query = "select * from test";  //查询语句，也可以换成CRUD的其他语句 ResultSet resultSet = statement.executeQuery(query); //6.关闭连接对象 connection.close();</code></pre> <p>我们一步步来看，先看步骤1：</p> <pre><code class="language-java">Class.forName("com.mysql.cj.jdbc.Driver");</code></pre> <p>查看对应的<code>com.mysql.cj.jdbc.Driver</code>路径下的源码：</p> <pre><code class="language-java">package com.mysql.cj.jdbc;  import java.sql.DriverManager; import java.sql.SQLException;  public class Driver extends NonRegisteringDriver implements java.sql.Driver {     public Driver() throws SQLException {     }      static {         try {             DriverManager.registerDriver(new Driver());         } catch (SQLException var1) {             throw new RuntimeException("Can't register driver!");         }     } }</code></pre> <p>是通过静态方法调用<code>registerDriver()</code>方法来将MySQL驱动注入到<code>DriverManager</code>，<code>registerDriver()</code>方法具体如下：</p> <pre><code class="language-java">public static synchronized void registerDriver(java.sql.Driver driver)     throws SQLException { 	//直接调用下面的同名静态方法     registerDriver(driver, null); }  public static synchronized void registerDriver(java.sql.Driver driver,DriverAction da)throws SQLException {     /* registeredDrivers是一个list,用DriverInfo实例封装Driver */     if(driver != null) {         registeredDrivers.addIfAbsent(new DriverInfo(driver, da));     } else {         // This is for compatibility with the original DriverManager         throw new NullPointerException();     }     println("registerDriver: " + driver);  }</code></pre> <p><code>registeredDrivers</code>静态变量其实是一个list：</p> <pre><code class="language-java">public class DriverManager {     // List of registered JDBC drivers     private final static CopyOnWriteArrayList&lt;DriverInfo&gt; registeredDrivers = new CopyOnWriteArrayList&lt;&gt;();     //... }</code></pre> <p>而<code>DriverInfo</code>类中封装了<code>java.sql.Driver</code>接口:</p> <pre><code class="language-java">class DriverInfo {      final Driver driver;     DriverAction da;     DriverInfo(Driver driver, DriverAction action) {         this.driver = driver;         da = action;     }     //... }</code></pre> <p>再看步骤2、3，重点是步骤3</p> <pre><code class="language-java">Connection connection = DriverManager.getConnection(url, username, password);</code></pre> <p><code>Connection</code>接口是和特定数据库的连接会话，不同的数据库的连接会话都不相同：</p> <pre><code class="language-java">public interface Connection  extends Wrapper, AutoCloseable {      Statement createStatement() throws SQLException;     //... }</code></pre> <p>是通过<code>DriverManager</code>中的<code>getConnection</code>方法，从<code>registeredDrivers</code>进行选择对应数据库驱动下的连接实例：</p> <pre><code class="language-java">public static Connection getConnection(String url,String user, String password) throws SQLException {     java.util.Properties info = new java.util.Properties();      if (user != null) {         info.put("user", user);     }     if (password != null) {         info.put("password", password);     }      return (getConnection(url, info, Reflection.getCallerClass())); } // 实际上调用的是下面的静态方法getConnection //  Worker method called by the public getConnection() methods. private static Connection getConnection(     String url, java.util.Properties info, Class&lt;?&gt; caller) throws SQLException {     /*          * When callerCl is null, we should check the application's          * (which is invoking this class indirectly)          * classloader, so that the JDBC driver class outside rt.jar          * can be loaded from here.          */     ClassLoader callerCL = caller != null ? caller.getClassLoader() : null;     synchronized(DriverManager.class) {         // synchronize loading of the correct classloader.         if (callerCL == null) {             callerCL = Thread.currentThread().getContextClassLoader();         }     }      if(url == null) {         throw new SQLException("The url cannot be null", "08001");     }      println("DriverManager.getConnection(\"" + url + "\")");      // Walk through the loaded registeredDrivers attempting to make a connection.     // Remember the first exception that gets raised so we can reraise it.     SQLException reason = null;      for(DriverInfo aDriver : registeredDrivers) {         // If the caller does not have permission to load the driver then         // skip it.         if(isDriverAllowed(aDriver.driver, callerCL)) {             try {                 println("    trying " + aDriver.driver.getClass().getName());                 Connection con = aDriver.driver.connect(url, info);                 if (con != null) {                     // Success!                     println("getConnection returning " + aDriver.driver.getClass().getName());                     return (con);                 }             } catch (SQLException ex) {                 if (reason == null) {                     reason = ex;                 }             }          } else {             println("    skipping: " + aDriver.getClass().getName());         }     }      // if we got here nobody could connect.     if (reason != null)    {         println("getConnection failed: " + reason);         throw reason;     }      println("getConnection: no suitable driver found for "+ url);     throw new SQLException("No suitable driver found for "+ url, "08001"); }</code></pre> <p>在<code>Connection</code>接口的具体实现部分，MySQL的连接是通过两层实现完成抽象部分的实现：</p> <pre><code class="language-java">public class ConnectionImpl implements JdbcConnection, SessionEventListener, Serializable {     private static final long serialVersionUID = 4009476458425101761L;     private static final SQLPermission SET_NETWORK_TIMEOUT_PERM = new SQLPermission("setNetworkTimeout");     //... } public interface JdbcConnection extends Connection, MysqlConnection, TransactionEventHandler {     JdbcPropertySet getPropertySet();      void changeUser(String var1, String var2) throws SQLException;     //... }</code></pre> <p>综上我们可以画出对应的类图：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/cde6328eeb41ab8605a8ccbaca316555.jpg" alt="设计模式学习笔记桥接模式及其应用"></p> <h2 id="参考资料">参考资料</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://c.biancheng.net/view/1364.html"  target="_blank" rel="nofollow">http://c.biancheng.net/view/1364.html</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://jishuin.proginn.com/p/763bfbd68968"  target="_blank" rel="nofollow">https://jishuin.proginn.com/p/763bfbd68968</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/kuluo/p/13038076.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/kuluo/p/13038076.html</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-79000.htm">宠物领养合同怎么写范本 宠物领养合同怎么写范本图片</a></p>
+                                        <p>下一个：<a href="/news/article-79668.htm">SpringMVC中MultipartFile转File的两种方式_java</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-clash-node.htm" title="「3月17日」最高速度19.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「3月17日」最高速度19.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-47416.htm" title="java使用单循环链表解决约瑟夫问题">java使用单循环链表解决约瑟夫问题</a></li>
+                        <li class="py-2"><a href="/news/article-37539.htm" title="Java中的append方法是什么？">Java中的append方法是什么？</a></li>
+                        <li class="py-2"><a href="/news/article-38002.htm" title="vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目">vue3.x+vite+element-ui+vue-router+vuex+axios搭建项目</a></li>
+                        <li class="py-2"><a href="/news/article-67019.htm" title="宠物用品一件代发网站有哪些品牌（宠物用品一件代发进货渠道）">宠物用品一件代发网站有哪些品牌（宠物用品一件代发进货渠道）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-clash-v2ray-ss-ssr.htm" title="「2月1日」最高速度19.2M/S，2025年Hiddify Next每天更新免费节点订阅链接">「2月1日」最高速度19.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-free-v2ray.htm" title="「2月20日」最高速度22.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「2月20日」最高速度22.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-66397.htm" title="Sentinel基础应用详解">Sentinel基础应用详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-node-share-links.htm" title="「1月28日」最高速度18.5M/S，2025年Hiddify Next每天更新免费节点订阅链接">「1月28日」最高速度18.5M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-73558.htm" title="关于Windows系列密码抓取">关于Windows系列密码抓取</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
