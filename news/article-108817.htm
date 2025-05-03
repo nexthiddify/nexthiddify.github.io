@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-108817.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>PyQt5之MenuBar菜单控件的使用（三）</title>
+        <meta name="description" content="文章目录  MenuBar 详解 一、定义   1.QMenuBar类 2.QMenu类 2.QAction类   二、创建一个菜单栏     在PyQt5中，菜单栏、主菜单和菜单项分别用QMenuB" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-108817.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="PyQt5之MenuBar菜单控件的使用（三）" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/8e65f2a3139f96cf5093e7e5047d250f.webp" />
+        <meta property="og:release_date" content="2025-05-01T09:03:12" />
+    <meta property="og:updated_time" content="2025-05-01T09:03:12" />
+        <meta property="og:description" content="文章目录  MenuBar 详解 一、定义   1.QMenuBar类 2.QMenu类 2.QAction类   二、创建一个菜单栏     在PyQt5中，菜单栏、主菜单和菜单项分别用QMenuB" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PyQt5之MenuBar菜单控件的使用（三）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">
+                                                        <span>Hiddify Next</span>
+                                                        </a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>PyQt5之MenuBar菜单控件的使用（三）</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>文章目录</h3> <ul> <li>MenuBar 详解</li> <li>一、定义</li> <li> <ul> <li>1.QMenuBar类</li> <li>2.QMenu类</li> <li>2.QAction类</li> </ul> </li> <li>二、创建一个菜单栏</li> </ul> </div> <hr/> </h1> <p>在PyQt5中，菜单栏、主菜单和菜单项分别用QMenuBar类、QMenu类和QAction类来表示。</p> <hr/> </h1> <p>菜单栏是GUI应用的常规组成部分，是位于各种菜单中的一组命令操作。<strong>菜单栏（QMenuBar）</strong> 它分为两部分：<strong>主菜单（QMenu）</strong> 和 <strong>菜单项（QAction）</strong>。一个QMenu中可包含任意多个QAction对象，也可包含另外的QMenu，用来表示级联菜单。创建一个菜单，基本上都要用上这3个类。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/a5c68e1159788b4dbb33d7b11fb9d957.jpg" alt="PyQt5之MenuBar菜单控件的使用（三）"></p> <h2> 1.QMenuBar类</h2> <p>QMenuBar类是所有窗口的菜单栏，创建菜单栏的两种方法如下：<br /><code>方法一： QMenuBar类的构造方法</code></p> <pre><code class="prism language-javascript">self<span class="token punctuation">.</span>menuBar <span class="token operator">=</span> PyQt5<span class="token punctuation">.</span>QtWidgets<span class="token punctuation">.</span><span class="token function">QMenuBar</span><span class="token punctuation">(</span>QMainWindow<span class="token punctuation">)</span> </code></pre> <p><code>方法二：QMainWindow对象的menuBar（）方法 </code></p> <pre><code class="prism language-javascript">self<span class="token punctuation">.</span>menuBar <span class="token operator">=</span> QMainWindow<span class="token punctuation">.</span><span class="token function">menuBar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> <p>创建完菜单栏后，就可以使用QMenuBar类的方法对菜单进行设置。</p> <table> <thead> <tr> <th>方法</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>addAction（）</td> <td>添加菜单项</td> </tr> <tr> <td>addActions（）</td> <td>添加多个菜单项</td> </tr> <tr> <td>addMenu（）</td> <td>添加主菜单</td> </tr> </tbody> </table> <h2> 2.QMenu类</h2> <p>QMenu类是菜单栏中的菜单，可显示文本和图标，但不执行操作，类似于标签label的作用。</p> <table> <thead> <tr> <th>方法</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>addAction（）</td> <td>添加菜单项</td> </tr> <tr> <td>addMenu（）</td> <td>添加主菜单</td> </tr> <tr> <td>setTitle（）</td> <td>设置菜单的文本</td> </tr> <tr> <td>title（）</td> <td>获取菜单的文本</td> </tr> </tbody> </table> <h2> 2.QAction类</h2> <p>PyQt5中将用户与界面进行交互的元素抽象为一种“动作”，用QAction类表示。QAction类是一个运行在菜单栏、工具栏和定制键盘快捷键的抽象类，它是一个真正执行操作的部件。该类有一个常用的信号<strong>triggered</strong>，用来在单击菜单项时发射。</p> <table> <thead> <tr> <th>方法</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td>setIcon（）</td> <td>设置菜单项图标</td> </tr> <tr> <td>setShortcut（）</td> <td>设置快捷键</td> </tr> <tr> <td>setEnabled（）</td> <td>设置菜单项是否可用</td> </tr> <tr> <td>title（）</td> <td>获取菜单项的文本</td> </tr> </tbody> </table> </h1> <p>在下面的例子中，我们创建了一个带有菜单的菜单栏。这个菜单包含了一个动作，如果选中，就会终止应用程序。<br /><code>代码如下（示例）：</code></p> <pre><code class="prism language-python"><span class="token comment"># -*- coding: utf-8 -*-</span> <span class="token comment"># @Time    : 2022/7/14 14:14</span>  <span class="token keyword">import</span> sys <span class="token keyword">from</span> PyQt5<span class="token punctuation">.</span>QtWidgets <span class="token keyword">import</span> QMainWindow<span class="token punctuation">,</span> QAction<span class="token punctuation">,</span> QApplication<span class="token punctuation">,</span> qApp <span class="token keyword">from</span> PyQt5<span class="token punctuation">.</span>QtGui <span class="token keyword">import</span> QIcon  <span class="token keyword">class</span> <span class="token class-name">Example</span><span class="token punctuation">(</span>QMainWindow<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>         self<span class="token punctuation">.</span>my_initUI<span class="token punctuation">(</span><span class="token punctuation">)</span>      <span class="token keyword">def</span> <span class="token function">my_initUI</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>         exitAct <span class="token operator">=</span> QAction<span class="token punctuation">(</span>QIcon<span class="token punctuation">(</span><span class="token string">'images/exit.ico'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'退出&amp;(Q)'</span><span class="token punctuation">,</span> self<span class="token punctuation">)</span>     <span class="token comment">#创建QAction类的对象exitAct。QAction是一个用于菜单栏、工具栏或自定义快捷键的抽象动作行为</span>         exitAct<span class="token punctuation">.</span>setShortcut<span class="token punctuation">(</span><span class="token string">'Ctrl+Q'</span><span class="token punctuation">)</span>    			<span class="token comment">#调用对象的方法,为这个动作定义一个快捷键</span>         <span class="token comment"># exitAct.setStatusTip('退出应用')   	#创建一个当我们鼠标浮于菜单项之上就会显示的一个状态提示</span>         exitAct<span class="token punctuation">.</span>triggered<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>qApp<span class="token punctuation">.</span>quit<span class="token punctuation">)</span>      <span class="token comment">#选中特定的动作，触发信号被发射。信号连接到 QApplication组件的 quit()方法，这样就中断了应用</span>         <span class="token comment"># self.statusBar()      					#创建状态栏，用来显示上面的状态提示</span>          menubar <span class="token operator">=</span> self<span class="token punctuation">.</span>menuBar<span class="token punctuation">(</span><span class="token punctuation">)</span>            	<span class="token comment"># menuBar()方法创建了一个菜单栏</span>         fileMenu <span class="token operator">=</span> menubar<span class="token punctuation">.</span>addMenu<span class="token punctuation">(</span><span class="token string">'文件&amp;(F)'</span><span class="token punctuation">)</span>        <span class="token comment">#创建一个文件菜单，设置快捷键F</span>         fileMenu<span class="token punctuation">.</span>addAction<span class="token punctuation">(</span>exitAct<span class="token punctuation">)</span>                 <span class="token comment">#将退出动作添加到file菜单中</span>         self<span class="token punctuation">.</span>setGeometry<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">,</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token number">300</span><span class="token punctuation">)</span>         self<span class="token punctuation">.</span>setWindowTitle<span class="token punctuation">(</span><span class="token string">'菜单栏'</span><span class="token punctuation">)</span>         self<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>     app <span class="token operator">=</span> QApplication<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span>     ex <span class="token operator">=</span> Example<span class="token punctuation">(</span><span class="token punctuation">)</span>     sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span>app<span class="token punctuation">.</span>exec_<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p><code>效果图如下：</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/02dadef4a960c51c5c5cd0573af5988d.jpg" alt="PyQt5之MenuBar菜单控件的使用（三）"></p> <hr/> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-107916.htm">地暖壁挂炉品牌十大排名榜(地暖壁挂炉哪个品牌好)</a></p>
+                                        <p>下一个：<a href="/news/article-108818.htm">openstack命令创建云主机实例_在线工具Live2D</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-108818.htm" title="openstack命令创建云主机实例_在线工具Live2D">openstack命令创建云主机实例_在线工具Live2D</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-2-free-node-subscribe-links.htm" title="「5月2日」最高速度21.1M/S，2025年Hiddify Next每天更新免费节点订阅链接">「5月2日」最高速度21.1M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-88159.htm" title="JEECG登陆全过程">JEECG登陆全过程</a></li>
+                        <li class="py-2"><a href="/news/article-95628.htm" title="宠物粮食批发市场在哪里啊最近的（宠物粮食专卖店）">宠物粮食批发市场在哪里啊最近的（宠物粮食专卖店）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-free-clash-subscribe.htm" title="「4月10日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「4月10日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-97833.htm" title="宠物粮在哪里批发好卖呢知乎（宠物粮从哪里进货便宜）">宠物粮在哪里批发好卖呢知乎（宠物粮从哪里进货便宜）</a></li>
+                        <li class="py-2"><a href="/news/article-106858.htm" title="猫咪疫苗三针要隔多少天（猫咪的三针疫苗间隔多久）">猫咪疫苗三针要隔多少天（猫咪的三针疫苗间隔多久）</a></li>
+                        <li class="py-2"><a href="/news/article-100777.htm" title="开一个宠物店利润多少（开一家宠物店利润怎么样）">开一个宠物店利润多少（开一家宠物店利润怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-88876.htm" title="宠物批发货源在哪里找（宠物批发渠道）">宠物批发货源在哪里找（宠物批发渠道）</a></li>
+                        <li class="py-2"><a href="/news/article-103006.htm" title="宠物狗领养免费（宠物犬免费领养）">宠物狗领养免费（宠物犬免费领养）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-108818.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>openstack命令创建云主机实例_在线工具Live2D</title>
+        <meta name="description" content="@  目录  前言 上传centos镜像 创建实例 创建外网卡 修改安全组规则 创建云主机实例   前言 简单创建云主机实例只需要上传一个测试镜像、创建一张外网卡、创建一个实例类型、修改安全组规则即可" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-108818.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="openstack命令创建云主机实例_在线工具Live2D" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/e98d93e7a4997d2f95d6c8c3f56f0ed3.webp" />
+        <meta property="og:release_date" content="2025-05-01T09:03:12" />
+    <meta property="og:updated_time" content="2025-05-01T09:03:12" />
+        <meta property="og:description" content="@  目录  前言 上传centos镜像 创建实例 创建外网卡 修改安全组规则 创建云主机实例   前言 简单创建云主机实例只需要上传一个测试镜像、创建一张外网卡、创建一个实例类型、修改安全组规则即可" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="openstack命令创建云主机实例_在线工具Live2D">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">
+                                                        <span>Hiddify Next</span>
+                                                        </a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>openstack命令创建云主机实例_在线工具Live2D</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p>@</p> <div class="toc"> <div class="toc-container-header">目录</div> <ul> <li>前言</li> <li>上传centos镜像</li> <li>创建实例</li> <li>创建外网卡</li> <li>修改安全组规则</li> <li>创建云主机实例</li> </ul> </div> <h2 id="前言">前言</h2> <p>简单创建云主机实例只需要上传一个测试镜像、创建一张外网卡、创建一个实例类型、修改安全组规则即可<br /> 注：这里的两条命令是为了解决 虚拟机 环境下的 QEMU模拟器错误 导致云主机无法使用的问题，旧版本先电v2.2不存在此问题，真实服务器请忽略。</p> <pre><code class="language-powershell">## 更改配置文件并重启 nova-compute 服务 [root@compute ~]# crudini --set /etc/nova/nova.conf libvirt virt_type  qemu [root@compute ~]# systemctl restart openstack-nova-compute </code></pre> <h2 id="上传centos镜像">上传centos镜像</h2> <p>上传一个centos镜像，还可以设置最小启动磁盘与内存等，可以参考文档</p> <blockquote> <p>ages]# openstack image create --disk-format qcow2 --container-format bare --file ./CentOS_7.2_x86_64_XD.qcow2 centos</p> </blockquote> <pre><code class="language-powershell">[root@controller images]# openstack image create --disk-format qcow2 --container-format bare --file ./CentOS_7.2_x86_64_XD.qcow2 centos +------------------+------------------------------------------------------+ | Field            | Value                                                | +------------------+------------------------------------------------------+ | checksum         | ea197f4c679b8e1ce34c0aa70ae2a94a                     | | container_format | bare                                                 | | created_at       | 2022-04-30T20:53:21Z                                 | | disk_format      | qcow2                                                | | file             | /v2/images/2be3f0d5-2090-490c-8b91-84d96912e7c6/file | | id               | 2be3f0d5-2090-490c-8b91-84d96912e7c6                 | | min_disk         | 0                                                    | | min_ram          | 0                                                    | | name             | centos                                               | | owner            | 0635fff1ca6c42ab983e8a05d533eda3                     | | protected        | False                                                | | schema           | /v2/schemas/image                                    | | size             | 400752640                                            | | status           | active                                               | | tags             |                                                      | | updated_at       | 2022-04-30T20:53:23Z                                 | | virtual_size     | None                                                 | | visibility       | shared                                               | +------------------+------------------------------------------------------+ </code></pre> <h2 id="创建实例">创建实例</h2> <p>创建一个名为test0的实例</p> <blockquote> <p>openstack flavor create --disk 10 --ram 1024 --vcpu 2 --id 99999 test0</p> </blockquote> <pre><code class="language-powershell">[root@controller ~]# openstack flavor create --disk 10 --ram 1024 --vcpu 2 --id 99999 test0 +----------------------------+-------+ | Field                      | Value | +----------------------------+-------+ | OS-FLV-DISABLED:disabled   | False | | OS-FLV-EXT-DATA:ephemeral  | 0     | | disk                       | 10    | | id                         | 99999 | | name                       | test0 | | os-flavor-access:is_public | True  | | properties                 |       | | ram                        | 1024  | | rxtx_factor                | 1.0   | | swap                       |       | | vcpus                      | 2     | +----------------------------+-------+ </code></pre> <h2 id="创建外网卡">创建外网卡</h2> <p>注：若使用 虚拟机 搭建，外部网络类型请选择Flat；若使用 服务器 搭建，外部网络类型请选择VLAN；注意不要重复执行命令，二选一执行。</p> <blockquote> <p>openstack network create --provider-network-type vlan --provider-physical-network provider network-vlan --provider-segment 200</p> </blockquote> <pre><code class="language-powershell">[root@controller ~]# openstack network create --provider-network-type vlan --provider-physical-network provider ext-net --provider-segment 200 +---------------------------+-----------------------------------------------------------+ | Field                     | Value                                                     | +---------------------------+-----------------------------------------------------------+ | admin_state_up            | UP                                                        | | availability_zone_hints   |                                                           | | availability_zones        |                                                           | | created_at                | 2022-04-10T05:02:18Z                                      | | description               |                                                           | | dns_domain                | None                                                      | | id                        | cccedc78-027d-40e9-afbd-708154923ca6                      | | ipv4_address_scope        | None                                                      | | ipv6_address_scope        | None                                                      | | is_default                | False                                                     | | is_vlan_transparent       | None                                                      | | location                  | cloud='', project.domain_id=, project.domain_name='000000',  project.id='1776912d52a7444d8b2d09eb86e8d1d9', project.name='admin', region_name='',  zone=                                                                                  | | mtu                       | 1500                                                      | | name                      | ext-net                                              | | port_security_enabled     | True                                                      | | project_id                | 1776912d52a7444d8b2d09eb86e8d1d9                          | | provider:network_type     | vlan                                                      | | provider:physical_network | provider                                                  | | provider:segmentation_id  | 200                                                       | | qos_policy_id             | None                                                      | | revision_number           | 1                                                         | | router:external           | Internal                                                  | | segments                  | None                                                      | | shared                    | False                                                     | | status                    | ACTIVE                                                    | | subnets                   |                                                           | | tags                      |                                                           | | updated_at                | 2022-04-10T05:02:18Z                                      | +---------------------------+-----------------------------------------------------------+ </code></pre> <p>创建子网</p> <blockquote> <p>openstack subnet create  --network ext-net  --allocation-pool start=10.60.3.10,end=10.60.3.200 --gateway 10.60.3.1 --subnet-range 10.60.3.0/24  ext-subnet</p> </blockquote> <pre><code class="language-powershell">[root@controller ~]# openstack subnet list [root@controller ~]# openstack subnet create  --network ext-net  --allocation-pool start=10.60.3.10,end=10.60.3.200 --gateway 10.60.3.1 --subnet-range 10.60.3.0/24  ext-subnet +-------------------+------------------------------------------------------------------+ | Field             | Value                                                            | +-------------------+------------------------------------------------------------------+ | allocation_pools  | 10.60.3.10-10.60.3.200                                  | | cidr              | 10.60.3.0/24                                                 | | created_at        | 2022-04-10T05:03:52Z                                             | | description       |                                                                  | | dns_nameservers   |                                                                  | | enable_dhcp       | True                                                             | | gateway_ip        | 10.60.3.1                                                    | | host_routes       |                                                                  | | id                | 69c14fff-de95-440a-bc8e-fe9f43e4b424                             | | ip_version        | 4                                                                | | ipv6_address_mode | None                                                             | | ipv6_ra_mode      | None                                                             | | location          | cloud='', project.domain_id=, project.domain_name='000000',  project.id='1776912d52a7444d8b2d09eb86e8d1d9', project.name='admin', region_name='',  zone=                                                                                 | | name              | ext-subnet                                                      | | network_id        | cccedc78-027d-40e9-afbd-708154923ca6                             | | prefix_length     | None                                                             | | project_id        | 1776912d52a7444d8b2d09eb86e8d1d9                                 | | revision_number   | 0                                                                | | segment_id        | None                                                             | | service_types     |                                                                  | | subnetpool_id     | None                                                             | | tags              |                                                                  | | updated_at        | 2022-04-10T05:03:52Z                                             | +-------------------+------------------------------------------------------------------+ </code></pre> <h2 id="修改安全组规则">修改安全组规则</h2> <p>添加所有的udp、icmp、tcp的出入口<br /> 查看安全组id</p> <blockquote> <p>openstack security group list</p> </blockquote> <pre><code class="language-powershell">[root@controller ~]# openstack security group list +--------------------------------------+---------+------------------------+----------------------------------+ | ID                                   | Name    | Description            | Project                          | +--------------------------------------+---------+------------------------+----------------------------------+ |                                  | | 712025d7-6aa6-40e4-9104-4df6706b6697 | default | Default security group | 0635fff1ca6c42ab983e8a05d533eda3 | | +--------------------------------------+---------+------------------------+----------------------------------+ </code></pre> <p>添加所有ifmp规则入口</p> <blockquote> <p>openstack security group rule create --protocol icmp --ingress 712025d7-6aa6-40e4-9104-4df6706b6697</p> </blockquote> <pre><code class="language-powershell">[root@controller ~]# openstack security group rule create --protocol icmp --ingress 712025d7-6aa6-40e4-9104-4df6706b6697 +-------------------+--------------------------------------+ | Field             | Value                                | +-------------------+--------------------------------------+ | created_at        | 2022-04-30T21:22:54Z                 | | description       |                                      | | direction         | ingress                              | | ether_type        | IPv4                                 | | id                | 869e67e5-5571-4c03-a21c-715e3dd51a5c | | name              | None                                 | | port_range_max    | None                                 | | port_range_min    | None                                 | | project_id        | 0635fff1ca6c42ab983e8a05d533eda3     | | protocol          | icmp                                 | | remote_group_id   | None                                 | | remote_ip_prefix  | 0.0.0.0/0                            | | revision_number   | 0                                    | | security_group_id | 712025d7-6aa6-40e4-9104-4df6706b6697 | | updated_at        | 2022-04-30T21:22:54Z                 | +-------------------+--------------------------------------+ </code></pre> <p>添加所有icmp规则出口</p> <blockquote> <p>openstack security group rule create --protocol icmp --egress 712025d7-6aa6-40e4-9104-4df6706b6697</p> </blockquote> <pre><code class="language-powershell">[root@controller ~]# openstack security group rule create --protocol icmp --egress 712025d7-6aa6-40e4-9104-4df6706b6697 +-------------------+--------------------------------------+ | Field             | Value                                | +-------------------+--------------------------------------+ | created_at        | 2022-04-30T21:27:42Z                 | | description       |                                      | | direction         | egress                               | | ether_type        | IPv4                                 | | id                | ede63376-0eeb-4a6b-9dd9-f3a63418c85b | | name              | None                                 | | port_range_max    | None                                 | | port_range_min    | None                                 | | project_id        | 0635fff1ca6c42ab983e8a05d533eda3     | | protocol          | icmp                                 | | remote_group_id   | None                                 | | remote_ip_prefix  | 0.0.0.0/0                            | | revision_number   | 0                                    | | security_group_id | 712025d7-6aa6-40e4-9104-4df6706b6697 | | updated_at        | 2022-04-30T21:27:42Z                 | +-------------------+--------------------------------------+ </code></pre> <p>添加所有udp规则入口</p> <blockquote> <p>openstack security group rule create --protocol udp --ingress 712025d7-6aa6-40e4-9104-4df6706b6697</p> </blockquote> <p>添加所有udp规则出口</p> <blockquote> <p>openstack security group rule create --protocol udp --egress 712025d7-6aa6-40e4-9104-4df6706b6697</p> </blockquote> <p>添加所有tcp规则入口</p> <blockquote> <p>openstack security group rule create --protocol tcp --ingress 712025d7-6aa6-40e4-9104-4df6706b6697</p> </blockquote> <p>添加所有tcp规则出口</p> <blockquote> <p>openstack security group rule create --protocol tcp --egress 712025d7-6aa6-40e4-9104-4df6706b6697</p> </blockquote> <p>查看安全组规则</p> <blockquote> <p>openstack security group rule list 712025d7-6aa6-40e4-9104-4df6706b6697</p> </blockquote> <pre><code class="language-powershell">[root@controller ~]# openstack security group rule list 712025d7-6aa6-40e4-9104-4df6706b6697 +--------------------------------------+-------------+-----------+------------+-----------------------+ | ID                                   | IP Protocol | IP Range  | Port Range | Remote Security Group | +--------------------------------------+-------------+-----------+------------+-----------------------+ | 869e67e5-5571-4c03-a21c-715e3dd51a5c | icmp        | 0.0.0.0/0 |            | None                  | | 8a91bc8e-c9cd-4bf1-86ae-0c6d9eef67e7 | udp         | 0.0.0.0/0 |            | None                  | | b525b93f-ffb6-4b84-be99-fdfd6f0fad75 | tcp         | 0.0.0.0/0 |            | None                  | | dfea0691-0903-4cdf-b775-297eb6858f0d | udp         | 0.0.0.0/0 |            | None                  | | ede63376-0eeb-4a6b-9dd9-f3a63418c85b | icmp        | 0.0.0.0/0 |            | None                  | | f9371589-1b17-4e5b-9f8d-798055cdc662 | tcp         | 0.0.0.0/0 |            | None                  | +--------------------------------------+-------------+-----------+------------+-----------------------+ </code></pre> <h2 id="创建云主机实例">创建云主机实例</h2> <blockquote> <p>openstack server create --image centos --flavor test0 --network ext-net --security-group 712025d7-6aa6-40e4-9104-4df6706b6697 test</p> </blockquote> <pre><code class="language-powershell">[root@controller ~]# openstack server create --image centos --flavor test0 --network ext-net --security-group 712025d7-6aa6-40e4-9104-4df6706b6697 test +-------------------------------------+-----------------------------------------------+ | Field                               | Value                                         | +-------------------------------------+-----------------------------------------------+ | OS-DCF:diskConfig                   | MANUAL                                        | | OS-EXT-AZ:availability_zone         |                                               | | OS-EXT-SRV-ATTR:host                | None                                          | | OS-EXT-SRV-ATTR:hypervisor_hostname | None                                          | | OS-EXT-SRV-ATTR:instance_name       |                                               | | OS-EXT-STS:power_state              | NOSTATE                                       | | OS-EXT-STS:task_state               | scheduling                                    | | OS-EXT-STS:vm_state                 | building                                      | | OS-SRV-USG:launched_at              | None                                          | | OS-SRV-USG:terminated_at            | None                                          | | accessIPv4                          |                                               | | accessIPv6                          |                                               | | addresses                           |                                               | | adminPass                           | QPNdhd27eT9S                                  | | config_drive                        |                                               | | created                             | 2022-04-30T21:38:08Z                          | | flavor                              | test0 (99999)                                 | | hostId                              |                                               | | id                                  | 3a8870c8-411a-4674-b075-568dbf7f2bb1          | | image                               | centos (cc01ec45-6683-4fe1-ab4b-d38ca295d3d0) | | key_name                            | None                                          | | name                                | test                                          | | progress                            | 0                                             | | project_id                          | 0635fff1ca6c42ab983e8a05d533eda3              | | properties                          |                                               | | security_groups                     | name='712025d7-6aa6-40e4-9104-4df6706b6697'   | | status                              | BUILD                                         | | updated                             | 2022-04-30T21:38:08Z                          | | user_id                             | 71b51689f3e94be4927ed7d96ef6925b              | | volumes_attached                    |                                               | +-------------------------------------+-----------------------------------------------+ </code></pre> <p>查看并测试</p> <pre><code class="language-powershell">[root@controller ~]# openstack server list +--------------------------------------+------------+--------+--------------------------------------------+--------+--------+ | ID                                   | Name       | Status | Networks                                   | Image  | Flavor | +--------------------------------------+------------+--------+--------------------------------------------+--------+--------+ | 7ae48fd3-7ec7-4011-af07-1d75bc9578a4 | test       | ACTIVE | ext-net=10.60.3.11                         | centos | test10  |   +--------------------------------------+------------+--------+--------------------------------------------+--------+--------+ [root@controller ~]# ping 10.60.3.11 PING 10.60.3.11 (10.60.3.11) 56(84) bytes of data. 64 bytes from 10.60.3.11: icmp_seq=1 ttl=63 time=0.256 ms 64 bytes from 10.60.3.11: icmp_seq=2 ttl=63 time=0.279 ms 64 bytes from 10.60.3.11: icmp_seq=3 ttl=63 time=0.253 ms 64 bytes from 10.60.3.11: icmp_seq=4 ttl=63 time=0.242 ms 64 bytes from 10.60.3.11: icmp_seq=5 ttl=63 time=0.223 ms </code></pre> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-108817.htm">PyQt5之MenuBar菜单控件的使用（三）</a></p>
+                                        <p>下一个：<a href="/news/article-109638.htm">nginx+tomcat负载均衡集群</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-104237.htm" title="开宠物医院有什么要求（开宠物医院需要具备什么条件）">开宠物医院有什么要求（开宠物医院需要具备什么条件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-free-clash.htm" title="「4月5日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「4月5日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-98501.htm" title="用Python读hdfs集群parquet格式文件">用Python读hdfs集群parquet格式文件</a></li>
+                        <li class="py-2"><a href="/news/article-104683.htm" title="动物医院需要什么手续（去动物医院花多少钱）">动物医院需要什么手续（去动物医院花多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-28-clash-node.htm" title="「4月28日」最高速度19M/S，2025年Hiddify Next每天更新免费节点订阅链接">「4月28日」最高速度19M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-107916.htm" title="地暖壁挂炉品牌十大排名榜(地暖壁挂炉哪个品牌好)">地暖壁挂炉品牌十大排名榜(地暖壁挂炉哪个品牌好)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-15-shadowrocket-node.htm" title="「4月15日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「4月15日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-101439.htm" title="动物疫苗价格表最新图片高清版 动物疫苗价格表最新图片高清版大全">动物疫苗价格表最新图片高清版 动物疫苗价格表最新图片高清版大全</a></li>
+                        <li class="py-2"><a href="/news/article-109638.htm" title="nginx+tomcat负载均衡集群">nginx+tomcat负载均衡集群</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-23-free-shadowrocket-node.htm" title="「4月23日」最高速度21.1M/S，2025年Hiddify Next每天更新免费节点订阅链接">「4月23日」最高速度21.1M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
