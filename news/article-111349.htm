@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nexthiddify.github.io/news/article-111349.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>WPF路由事件</title>
+        <meta name="description" content="理解路由事件 事件路由允许源自某个元素的事件由另一个元素引发。 定义、注册和包装路由事件 public class MyWindow : Window { 	/// &lt;summary&gt; 	" />
+        <link rel="icon" href="/assets/website/img/nexthiddify/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Hiddify Next节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nexthiddify.github.io/news/article-111349.htm" />
+    <meta property="og:site_name" content="Hiddify Next节点分享站" />
+    <meta property="og:title" content="WPF路由事件" />
+    <meta property="og:image" content="https://nexthiddify.github.io/uploads/20240502/3377606fa177c6a47ff640f0675dba4c.webp" />
+        <meta property="og:release_date" content="2025-05-04T09:28:01" />
+    <meta property="og:updated_time" content="2025-05-04T09:28:01" />
+        <meta property="og:description" content="理解路由事件 事件路由允许源自某个元素的事件由另一个元素引发。 定义、注册和包装路由事件 public class MyWindow : Window { 	/// &lt;summary&gt; 	" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="WPF路由事件">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.bootcdn.net">
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com">
+
+    <!-- web-fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,500' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- off-canvas -->
+    <link href="/assets/website/css/nexthiddify/mobile-menu.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flat Icon -->
+    <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/nexthiddify/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WE756N89P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1WE756N89P');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+                                <!-- .navbar-top -->
+                <nav class="navbar m-menu navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">
+                                                        <span>Hiddify Next</span>
+                                                        </a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="#navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right main-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </div>
+                        <!-- .navbar-collapse -->
+                    </div>
+                    <!-- .container -->
+                </nav>
+                <!-- .nav -->
+                <section class="single-page-title single-page-title-about">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>WPF路由事件</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- .page-title -->
+                <section class="featured-box">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ol class="breadcrumb">
+                                  <li><a href="/">首页</a></li>
+                                  <li><a href="/news/">新闻资讯</a></li>
+                                  <li class="active">正文</li>
+                                </ol>
+
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<h3 id="理解路由事件">理解路由事件</h3> <p>事件路由允许源自某个元素的事件由另一个元素引发。</p> <p><strong>定义、注册和包装路由事件</strong></p> <pre><code class="language-c#">public class MyWindow : Window { 	/// &lt;summary&gt; 	/// 定义和注册路由事件 	/// &lt;/summary&gt; 	public static readonly RoutedEvent MyRoutedEvent = EventManager.RegisterRoutedEvent("MyEvent", 		RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(MyWindow));  	/// &lt;summary&gt; 	/// 包装路由事件 	/// &lt;/summary&gt; 	public event RoutedEventHandler MyRouted 	{ 		add 		{ 			base.AddHandler(MyRoutedEvent, value); 		} 		remove 		{ 			base.RemoveHandler(MyRoutedEvent, value); 		} 	} }</code></pre> <p><strong>共享路由事件</strong></p> <p>	与依赖项属性一样，可以在类之间共享路由事件的定义。例如，两个基类<em>UIElement</em>和<em>ContentElement</em>类,都使用了<em>MouseUp</em>事件。<em>MouseUp</em>事件是在<em>Windows.Input.Mouse</em>类中定义，通过<em>RoutedEvent.AddOwer()</em>方法重用<em>MouseUp</em>事件。</p> <pre><code class="language-c#">	UIElement.MouseUpEvent = Mouse.MouseUpEvent.AddOwner(Typeof(UIElement));</code></pre> <p><strong>触发路由事件</strong></p> <p>路由事件的引发不是传统的<em>.NET</em>事件包装器引发，而是使用<em>RaiseEvent()</em>方法引发事件，说有UIElement类继承了该方法。</p> <pre><code class="language-c#">	RoutedEventArgs e = new RoutedEventArgs(MyRoutedEvent, this); 	base.RaiseEvent(e);</code></pre> <p><strong>处理路由事件</strong></p> <p>XAML标记添加事件特性</p> <pre><code class="language-xaml">&lt;local:MyWindow ...                  MyRouted="MyWindow_MyRouted"                 ... /&gt;</code></pre> <p>通过代码连接事件</p> <pre><code class="language-c#">     this.MyRouted += MainWindow_MyRouted;  	///WPF事件参数类都是继承自RoutedEventArgs类，可自定义事件参数类来传递更多的信息 	private void MainWindow_MyRouted(object sender, RoutedEventArgs e) 	{ 		//do something... 	}</code></pre> <p>还可以通过调用<em>AddHandler()</em>方法链接事件处理器。</p> <pre><code class="language-c#">	AddHandler(MyRoutedEvent, new RoutedEventHandler((s,e)=&gt; 	{         //do something...                                                  	}));	 	或 	AddHandler(MyRoutedEvent, new RoutedEventHandler(Eventhandler));  	private void Eventhandler(object o, RoutedEventArgs e) 	{ 		//do something... 	} 	//使用RemoveHandler()方法来移除事件处理器 注：匿名委托不适用 	//当程序多次附加事件处理器时，执行RemoveHandler()方法只删除一次连接。例如，连接了两次事件处理程序，删除了一次连接，触发事件时事件处理程序执行一次。		连接了三次事件处理程序，删除了一次连接，触发事件时事件处理程序执行两次。 	RemoveHandler(MyRoutedEvent, new RoutedEventHandler(eventhandler)); 	或      MyRouted -= Eventhandler;</code></pre> <p><strong>事件路由</strong></p> <p><em>WPF</em>窗体中的所有要素都一定程度上继承自<em>UIElement</em>类，<em>WPF</em>中的许多空间都是内容控件，继承自<em>ContentControl</em>，可以在其中多次重复嵌套。</p> <p><em>WPF</em>路由事件模型的三种方式：</p> <ul> <li>直接路由事件(<em>Direct Event</em>)：与.NET事件类似，它起源于一个元素，并且不传递给其他元素。例如，<em>MouseEnter</em>事件是一个直接路由事件。</li> <li>冒泡路由事件(<em>Bubbling Event</em>)：在包含层次中向上传递。例如，<em>MouseDown</em>事件就是冒泡路由事件。冒泡顺序首先由被单击的元素引发，接下来被该元素的父元素引发，依次类推，直到<em>WPF</em>元素树的顶部为止。</li> <li>隧道路由事件(<em>Tunneling Event</em>)：在包含层次中向下传递。隧道路由事件在事件到达恰当的控件之前为预览事件（或者可能终止事件）提供机会。例如，通过<em>PreviewKeyDown</em>事件可以截获是否按下了一个键，首先在窗口级别上，然后是更具体的容器，直到到达按下键时具有焦点的元素。</li> </ul> <p>路由事件的行为在注册路由事件的<em>EventManager.RegisterEvent</em>()中定义，传递为<em>RoutingStrategy</em>枚举值。</p> <p><strong><em>RoutedEventArgs</em>类</strong></p> <p><em>WPF</em>事件参数类都是继承自<em>RoutedEventArgs</em>类，可自定义事件参数类来传递更多的信息。<em>RoutedEventArgs</em>类的属性：</p> <table> <thead> <tr> <th>名称</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td><em>Source</em></td> <td>指示引发事件的对象。对于键盘事件，是当事件发生时具有焦点的控件。对于鼠标事件，是当事件发生时鼠标指针下面所有元素中最上面的元素。</td> </tr> <tr> <td><em>OriginalSource</em></td> <td>指示最初是什么对象引发事件。通常<em>OriginalSource</em>属性和<em>Source</em>属性值是相同的。但是在某些情况下，<em>OriginalSource</em>属性指向对象树种更深得层次，以获得作为更高一级元素一部分的后台元素，事件最原始的源为<em>Border</em>元素，组成在控件模板中。</td> </tr> <tr> <td><em>RoutedEvent</em></td> <td>通过事件处理程序为触发的事件提供<em>RoutedEvent</em>对象。如果使用同一事件处理程序处理不同的事件，这一信息是非常有用得。</td> </tr> <tr> <td><em>Handled</em></td> <td>该属性允许终止事件的冒泡或隧道过程。如果一个控件将<em>Handled</em>属性设置为<em>true</em>，那么事件将不会继续传播。并且也不会再为任何其他元素引发该事件。</td> </tr> </tbody> </table> <p><strong>冒泡路由事件</strong></p> <pre><code class="language-xaml">&lt;Label MouseUp="Label_MouseUp"&gt; 	&lt;Border MouseUp="Border_MouseUp"&gt; 		&lt;StackPanel MouseUp="StackPanel_MouseUp"&gt; 			&lt;Button Width="100" Height="30"  MouseUp="Button_MouseUp"/&gt; 		&lt;/StackPanel&gt; 	&lt;/Border&gt; &lt;/Label&gt;</code></pre> <pre><code class="language-c#">MessageBox.Show("btn"+"\n"+sender.ToString()+ "\n" + e.Source.ToString()+ "\n" + e.OriginalSource.ToString());</code></pre> <p>在一个容器中放置下列元素，分别给每一个元素的<em>MouseUp</em>事件处理器添加以上代码。窗体打开后右键点击按钮就会依次弹出消息框，通过消息框信息可以看到事件的触发顺序依次是<em>Button</em>、<em>StackPanel</em>、<em>Border</em>、<em>Label</em>。若在<em>StackPanel</em>的<em>MouseUp</em>事件处理器中将<em>e.Handled</em>设置为<em>true</em>时，事件将不会继续传播，程序将不会在进入<em>Boder</em>和<em>Label</em>中的<em>MouseUp</em>事件处理器中。</p> <pre><code class="language-c#">e.Handled = true;</code></pre> <p>当事件处于挂起时，还可以通过<em>AddHandler</em>()方法，<em>AddHandler</em>()方法提供一个重载版本，在之前的基础上在传递一个<em>bool</em>类型的参数，将参数设置为<em>true</em>时，即使<em>Handled</em>属性被设置为<em>true</em>也可以接收到事件。</p> <pre><code class="language-c#">lab.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(Label_MouseUp), true);</code></pre> <p>在设计器中删除<em>Label</em>元素的<em>MouseUp</em>事件特性，在初始化时通过以上代码连接事件处理器。当触发<em>MouseUp</em>时，Label消息框就会出现。</p> <p><strong>附加事件</strong></p> <pre><code class="language-xaml">&lt;StackPanel Name="stpBtn" Grid.Row="2" ButtonBase.Click="DoSomething"&gt; 	&lt;Button Width="100" Height="30" /&gt; 	&lt;Button Width="100" Height="30" Margin="0,10" /&gt; 	&lt;Button Width="100" Height="30" /&gt; &lt;/StackPanel&gt;</code></pre> <p>以上代码在<em>StackPanel</em>元素中关联<em>Button</em>元素的点击事件，当点击其中按钮时就会进图<em>DoSomething</em>()方法，通过类名.事件命关联事件。<em>Click</em>事件是在<em>ButtonBase</em>中定义，Button继承自<em>ButtonBase</em>。附加事件还可以通过以下方式连接：</p> <pre><code class="language-c#">//关联附加事件只能用UIElement.AddHandler()方法 不能用 += 运算符 stpBtn.AddHandler(Button.ClickEvent, new RoutedEventHandler(DoSomething));</code></pre> <p><strong>隧道事件</strong></p> <p>隧道路由事件的工作方式和冒泡路由事件相同，但方向相反。隧道路由事件一般有<em>Preview</em>开头，<em>WPF</em>通常成对的定义隧道路由事件通常和冒泡事件。如果将隧道路由事件标记为已处理过（<em>e.Handled=true</em>），那么就不会发生冒泡路由事件，这是因为两个事件共享<em>RoutedEventArgs</em>的同一个实例。</p> <h3 id="wpf事件"><em>WPF</em>事件</h3> <p><em>WPF</em>元素提供了许多事件，但最重要的事件通常包括5类，生命周期事件、鼠标事件、键盘事件、手写笔事件、多点触控事件。</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-110436.htm">动物医院有哪些岗位（动物医院属于什么专业）</a></p>
+                                        <p>下一个：<a href="/news/article-111354.htm">宠颐生宠物医院贵吗 宠颐生医院怎么样</a></p>
+                                    </div>
+                                            </div>
+                            <div class="col-md-3">
+                                <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-86022.htm" title="宠物粮食市场报告分析（宠物粮食市场前景）">宠物粮食市场报告分析（宠物粮食市场前景）</a></li>
+                        <li class="py-2"><a href="/news/article-92585.htm" title="被猫咬出血了一定要***吗要多少钱（被猫咬出血要***么）">被猫咬出血了一定要***吗要多少钱（被猫咬出血要***么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-5-node-share-links.htm" title="「5月5日」最高速度20M/S，2025年Hiddify Next每天更新免费节点订阅链接">「5月5日」最高速度20M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-86726.htm" title="真正的宠物狗免费领养网站是什么（宠物狗免费领养）">真正的宠物狗免费领养网站是什么（宠物狗免费领养）</a></li>
+                        <li class="py-2"><a href="/news/article-103007.htm" title="宠物店的猫哪里进货（宠物猫进货渠道）">宠物店的猫哪里进货（宠物猫进货渠道）</a></li>
+                        <li class="py-2"><a href="/news/article-97833.htm" title="宠物粮在哪里批发好卖呢知乎（宠物粮从哪里进货便宜）">宠物粮在哪里批发好卖呢知乎（宠物粮从哪里进货便宜）</a></li>
+                        <li class="py-2"><a href="/news/article-109638.htm" title="nginx+tomcat负载均衡集群">nginx+tomcat负载均衡集群</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-29-node-share.htm" title="「4月29日」最高速度21.1M/S，2025年Hiddify Next每天更新免费节点订阅链接">「4月29日」最高速度21.1M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-87455.htm" title="动物疫苗打一次管多长时间有效（动物疫苗注射后多久产生抗体）">动物疫苗打一次管多长时间有效（动物疫苗注射后多久产生抗体）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-27-free-ssr-node.htm" title="「4月27日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「4月27日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <footer class="footer">
+                    <div class="copyright-section">
+                        <div class="container clearfix">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <span class="copytext">
+                                Hiddify Next节点分享站 版权所有 Powered by WordPress
+                            </span>
+                            <ul class="list-inline pull-right">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div><!-- .container -->
+                    </div><!-- .copyright-section -->
+                </footer>
+                <!-- .footer -->
+            </div>
+            <!-- .content-wrapper -->
+        </div>
+        <!-- .offcanvas-pusher -->
+        <div class="uc-mobile-menu uc-mobile-menu-effect">
+            <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="uc-mobile-menu-close-btn">&times;</button>
+            <div>
+                <div>
+                    <ul id="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- .uc-mobile-menu -->
+    </div>
+    <!-- #main-wrapper -->
+    <!-- Script -->
+    <script src="/assets/website/js/frontend/nexthiddify/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/smoothscroll.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/mobile-menu.js"></script>
+    <script src="/assets/website/js/frontend/nexthiddify/scripts.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
