@@ -358,14 +358,13 @@ sudo systemctl </span><span><span class="hljs-built_in">enable</span></span><spa
 <p data-start="3985" data-end="4073" data-is-last-node="" data-is-only-node="">最可贵的是，全文不仅限于“怎么做”，而是始终围绕“为什么这样做”展开，真正帮助读者建立对科学上网工具的理解与掌控意识，而非盲目照做。这才是一篇优秀技术博客所应具备的深度与温度。</p></div>
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
-        <p>上一个：<a href="/free-nodes/2025-11-4-clash-v2ray-ss-ssr.htm">「11月4日」最高速度18M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></p>
         <p>下一个：<a href="/free-nodes/2025-11-6-free-ssr-subscribe.htm">「11月6日」最高速度19.1M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分组如何提升访问效率？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 的 route 功能如何工作？</h5></div>
     <div class="panel-body">
-        节点可按延迟、地区或用途分组，结合策略组实现自动分流。快速选择最优节点，可提高网页、视频和游戏访问速度，同时优化节点管理和维护效率，提升整体网络体验。<hr />    </div>
+        Sing-box 提供强大的路由系统，允许用户基于 IP、域名、GEO 数据库、进程名等条件精细分流。配置完成后，程序自动匹配规则，将不同流量转发到对应的出口。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 的 MITM 功能如何使用？</h5></div>
@@ -373,14 +372,19 @@ sudo systemctl </span><span><span class="hljs-built_in">enable</span></span><spa
         QuantumultX 的 MITM（中间人）功能可拦截 HTTPS 流量，用于修改或分析请求与响应。开启时需安装客户端生成的根证书，确保能正确解析加密数据。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 在路由器上使用 TUN 模式会有什么影响？</h5></div>
+    <div class="panel-body">
+        启用 TUN 模式会拦截并转发路由器上全部或选定流量，这会增加路由器 CPU 与内存负担，可能影响路由器其他服务表现。建议在性能足够的设备上启用，或仅对特定设备/端口进行分流。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 节点分组如何提升访问效率？</h5></div>
+    <div class="panel-body">
+        节点可按延迟、地区或用途分组，结合策略组实现自动分流。快速选择最优节点，可提高网页、视频和游戏访问速度，同时优化节点管理和维护效率，提升整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS 的伪装流量如何提升隐蔽性？</h5></div>
     <div class="panel-body">
         VLESS 通过 Reality 或 XTLS 模式对流量进行伪装，使其在外观上与正常 HTTPS 请求一致。这样可以绕过深度包检测和封锁，提高高封锁网络环境下的可用性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 服务端出现 handshake timeout 如何处理？</h5></div>
-    <div class="panel-body">
-        该错误通常由网络延迟或证书配置不一致导致。请检查服务器带宽是否充足、TLS 证书链完整，并确保客户端 SNI 与证书匹配。必要时更换节点或优化拥塞控制算法。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 运行在低配设备上卡顿，如何减轻资源占用？</h5></div>
@@ -393,24 +397,19 @@ sudo systemctl </span><span><span class="hljs-built_in">enable</span></span><spa
         Clash 会定期测速节点延迟，并根据策略组自动选择延迟最低节点处理流量。可避免访问高延迟或失效节点，提高网页、视频和游戏访问速度及稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 协议混淆如何增强安全性？</h5></div>
-    <div class="panel-body">
-        SSR 可通过选择混淆方式和协议组合隐藏真实流量特征，降低被 DPI 检测和封锁风险。合理配置可提高节点隐蔽性和长期可用性，保证科学上网体验稳定可靠。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Quantumult X 的分流规则如何设置？</h5></div>
     <div class="panel-body">
         Quantumult X 通过规则分组来控制流量走向。用户可自定义策略组，将特定网站流量指向不同节点。编辑规则文件时，可利用 GEOIP、DOMAIN-SUFFIX 等指令精确管理网络行为。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的 route 功能如何工作？</h5></div>
+    <div class="panel-heading"><h5>Trojan 服务端出现 handshake timeout 如何处理？</h5></div>
     <div class="panel-body">
-        Sing-box 提供强大的路由系统，允许用户基于 IP、域名、GEO 数据库、进程名等条件精细分流。配置完成后，程序自动匹配规则，将不同流量转发到对应的出口。<hr />    </div>
+        该错误通常由网络延迟或证书配置不一致导致。请检查服务器带宽是否充足、TLS 证书链完整，并确保客户端 SNI 与证书匹配。必要时更换节点或优化拥塞控制算法。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 在路由器上使用 TUN 模式会有什么影响？</h5></div>
+    <div class="panel-heading"><h5>SSR 协议混淆如何增强安全性？</h5></div>
     <div class="panel-body">
-        启用 TUN 模式会拦截并转发路由器上全部或选定流量，这会增加路由器 CPU 与内存负担，可能影响路由器其他服务表现。建议在性能足够的设备上启用，或仅对特定设备/端口进行分流。    </div>
+        SSR 可通过选择混淆方式和协议组合隐藏真实流量特征，降低被 DPI 检测和封锁风险。合理配置可提高节点隐蔽性和长期可用性，保证科学上网体验稳定可靠。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -439,16 +438,16 @@ sudo systemctl </span><span><span class="hljs-built_in">enable</span></span><spa
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-31-free-shadowrocket-node.htm" title="「10月31日」最高速度22.4M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月31日」最高速度22.4M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-9-clash-v2ray-ss-ssr.htm" title="「11月9日」最高速度18.1M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月9日」最高速度18.1M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-8-free-node-subscribe.htm" title="「10月8日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月8日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-20-free-clash.htm" title="「10月20日」最高速度20.8M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月20日」最高速度20.8M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-24-free-clash.htm" title="「10月24日」最高速度23M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月24日」最高速度23M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-26-free-ssr-subscribe.htm" title="「10月26日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月26日」最高速度21.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-18-free-shadowrocket-node.htm" title="「10月18日」最高速度20M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月18日」最高速度20M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-22-free-clash.htm" title="「10月22日」最高速度18.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月22日」最高速度18.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-12-clash-node.htm" title="「10月12日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月12日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-13-node-share-links.htm" title="「10月13日」最高速度19.8M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月13日」最高速度19.8M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-20-free-ssr-subscribe.htm" title="「11月20日」最高速度20.9M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月20日」最高速度20.9M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-12-clash-v2ray-ss-ssr.htm" title="「11月12日」最高速度19.5M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月12日」最高速度19.5M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-6-free-ssr-subscribe.htm" title="「11月6日」最高速度19.1M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月6日」最高速度19.1M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-29-free-v2ray.htm" title="「11月29日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月29日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-19-node-share-links.htm" title="「11月19日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月19日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-4-free-clash-subscribe.htm" title="「12月4日」最高速度22.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「12月4日」最高速度22.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-27-free-high-speed-nodes.htm" title="「11月27日」最高速度19.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月27日」最高速度19.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-18-free-shadowrocket-node.htm" title="「11月18日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月18日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-14-free-v2ray.htm" title="「11月14日」最高速度18.5M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月14日」最高速度18.5M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-17-free-node-subscribe.htm" title="「11月17日」最高速度21.2M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月17日」最高速度21.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -460,10 +459,10 @@ sudo systemctl </span><span><span class="hljs-built_in">enable</span></span><spa
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>
