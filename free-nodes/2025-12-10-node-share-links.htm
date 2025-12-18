@@ -411,12 +411,28 @@ A：排查订阅源、节点稳定性，并使用健康检测功能定期自动�
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2025-12-9-clash-v2ray-ss-ssr.htm">「12月9日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></p>
+        <p>下一个：<a href="/free-nodes/2025-12-11-clash-v2ray-ss-ssr.htm">「12月11日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的多策略组能带来什么优势？</h5></div>
+    <div class="panel-heading"><h5>VMess 的 TLS 选项何时使用最合适？</h5></div>
     <div class="panel-body">
-        多策略组可将节点按用途或地域分类，结合路由规则实现精准分流。用户无需频繁切换节点即可自动使用最佳线路，提高网络访问效率和稳定性。<hr />    </div>
+        TLS 可提供加密和伪装，适合在高封锁或不稳定网络环境使用。结合域名伪装和证书，可让流量看起来像普通 HTTPS 请求，提升抗封锁能力和隐蔽性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS 的 XTLS 模式能提升传输效率吗？</h5></div>
+    <div class="panel-body">
+        XTLS 模式通过减少冗余加密和握手次数，降低延迟，提高吞吐量。在高并发和短连接场景下，效率明显优于普通 TLS，同时保持数据安全性和隐蔽性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的本地 PAC 模式与全局模式有什么区别？</h5></div>
+    <div class="panel-body">
+        PAC 模式通过规则文件自动判定哪些域名走代理，能兼顾速度与便利；全局模式则所有流量都通过代理，适合调试或访问被完全屏蔽的网络。两者可在界面一键切换，根据需求灵活选择。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的 UDP 转发功能如何启用？</h5></div>
+    <div class="panel-body">
+        SSR 支持 UDP 转发，可通过客户端设置开启。启用后，游戏和语音等 UDP 流量可通过节点代理，降低丢包率和延迟，提高实时网络应用体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 使用 AEAD 加密的优势是什么？</h5></div>
@@ -429,19 +445,9 @@ A：排查订阅源、节点稳定性，并使用健康检测功能定期自动�
         支持。用户可以根据端口号将不同应用流量分流到指定节点。例如游戏走低延迟节点，浏览网页走普通节点，实现精准流量管理和优化网络访问速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 的 TUN 模式与系统全局代理有何区别？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 的多策略组能带来什么优势？</h5></div>
     <div class="panel-body">
-        TUN 模式直接拦截 IP 层流量，不依赖应用代理设置，系统全局代理通常只影响支持 HTTP/HTTPS 的程序。TUN 更适合全局科学上网和游戏环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的本地 PAC 模式与全局模式有什么区别？</h5></div>
-    <div class="panel-body">
-        PAC 模式通过规则文件自动判定哪些域名走代理，能兼顾速度与便利；全局模式则所有流量都通过代理，适合调试或访问被完全屏蔽的网络。两者可在界面一键切换，根据需求灵活选择。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash for Android 如何导入订阅并自动更新？</h5></div>
-    <div class="panel-body">
-        在 Clash for Android 的配置界面中选择“配置文件”→“新建配置”，粘贴订阅链接即可。启用自动更新功能后，软件会定期检查订阅源是否有新节点，并在后台自动替换旧配置，保持节点最新状态。<hr />    </div>
+        多策略组可将节点按用途或地域分类，结合路由规则实现精准分流。用户无需频繁切换节点即可自动使用最佳线路，提高网络访问效率和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + Reality 与 Trojan 在性能上差异大吗？</h5></div>
@@ -449,19 +455,14 @@ A：排查订阅源、节点稳定性，并使用健康检测功能定期自动�
         两者性能相近。VLESS + Reality 伪装更自然，适合强封锁地区；Trojan 则依托标准 TLS 实现高速连接。选择取决于服务器支持与环境稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 的 XTLS 模式能提升传输效率吗？</h5></div>
+    <div class="panel-heading"><h5>Mellow 的 TUN 模式与系统全局代理有何区别？</h5></div>
     <div class="panel-body">
-        XTLS 模式通过减少冗余加密和握手次数，降低延迟，提高吞吐量。在高并发和短连接场景下，效率明显优于普通 TLS，同时保持数据安全性和隐蔽性。<hr />    </div>
+        TUN 模式直接拦截 IP 层流量，不依赖应用代理设置，系统全局代理通常只影响支持 HTTP/HTTPS 的程序。TUN 更适合全局科学上网和游戏环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 的 TLS 选项何时使用最合适？</h5></div>
+    <div class="panel-heading"><h5>Clash for Android 如何导入订阅并自动更新？</h5></div>
     <div class="panel-body">
-        TLS 可提供加密和伪装，适合在高封锁或不稳定网络环境使用。结合域名伪装和证书，可让流量看起来像普通 HTTPS 请求，提升抗封锁能力和隐蔽性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的 UDP 转发功能如何启用？</h5></div>
-    <div class="panel-body">
-        SSR 支持 UDP 转发，可通过客户端设置开启。启用后，游戏和语音等 UDP 流量可通过节点代理，降低丢包率和延迟，提高实时网络应用体验。    </div>
+        在 Clash for Android 的配置界面中选择“配置文件”→“新建配置”，粘贴订阅链接即可。启用自动更新功能后，软件会定期检查订阅源是否有新节点，并在后台自动替换旧配置，保持节点最新状态。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -490,16 +491,16 @@ A：排查订阅源、节点稳定性，并使用健康检测功能定期自动�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-11-10-node-share-links.htm" title="「11月10日」最高速度20.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月10日」最高速度20.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-19-node-share-links.htm" title="「11月19日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月19日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-9-clash-v2ray-ss-ssr.htm" title="「11月9日」最高速度18.1M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月9日」最高速度18.1M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-2-free-v2ray-subscribe.htm" title="「12月2日」最高速度20.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「12月2日」最高速度20.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-21-free-ssr-subscribe.htm" title="「11月21日」最高速度22.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月21日」最高速度22.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-9-clash-v2ray-ss-ssr.htm" title="「12月9日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「12月9日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-18-free-shadowrocket-node.htm" title="「11月18日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月18日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-11-free-node-subscribe.htm" title="「11月11日」最高速度22.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月11日」最高速度22.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-12-3-clash-node.htm" title="「12月3日」最高速度20M/S，2025年Hiddify Next每天更新免费节点订阅链接">「12月3日」最高速度20M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-22-clash-v2ray-ss-ssr.htm" title="「11月22日」最高速度19.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月22日」最高速度19.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-29-free-v2ray.htm" title="「11月29日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月29日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-28-free-v2ray.htm" title="「11月28日」最高速度19.4M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月28日」最高速度19.4M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-12-clash-v2ray-ss-ssr.htm" title="「11月12日」最高速度19.5M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月12日」最高速度19.5M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-9-clash-v2ray-ss-ssr.htm" title="「11月9日」最高速度18.1M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月9日」最高速度18.1M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-8-free-v2ray-subscribe.htm" title="「12月8日」最高速度18.8M/S，2025年Hiddify Next每天更新免费节点订阅链接">「12月8日」最高速度18.8M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-23-free-v2ray-subscribe.htm" title="「11月23日」最高速度21M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月23日」最高速度21M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-30-free-ssr-subscribe.htm" title="「11月30日」最高速度19.9M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月30日」最高速度19.9M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-13-free-node-subscribe-links.htm" title="「12月13日」最高速度20.8M/S，2025年Hiddify Next每天更新免费节点订阅链接">「12月13日」最高速度20.8M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-27-free-high-speed-nodes.htm" title="「11月27日」最高速度19.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「11月27日」最高速度19.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -511,7 +512,7 @@ A：排查订阅源、节点稳定性，并使用健康检测功能定期自动�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
