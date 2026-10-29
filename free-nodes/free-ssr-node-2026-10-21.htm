@@ -393,19 +393,9 @@ Linux: ~/.config/clash/config.yaml
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 在路由器中如何更新节点订阅？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 的 QUIC 协议如何降低延迟？</h5></div>
     <div class="panel-body">
-        在 PassWall2 面板中点击“订阅管理”，输入或更新订阅链接后，点击“手动更新”即可自动下载最新节点数据。也可设置定时任务每日自动更新，保持配置最新。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 是否可以代理局域网设备？</h5></div>
-    <div class="panel-body">
-        可以。Netch 支持启用局域网共享功能，使同一网络下的其他设备通过主机的代理访问外网。需确保防火墙允许入站连接，且代理端口在局域网中开放。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的脚本功能能实现哪些高级操作？</h5></div>
-    <div class="panel-body">
-        QuantumultX 支持 JavaScript 脚本，可用于请求重写、数据修改、自动签到、广告拦截等功能。用户可通过脚本中心导入开源脚本，极大增强应用的灵活性与自动化能力。<hr />    </div>
+        QUIC 协议基于 UDP，多路复用和拥塞控制优化，可减少握手延迟和包重传次数。Hysteria2 利用 QUIC 的特性，使高延迟或丢包网络下依然保持低延迟和高稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 能否同时运行多个代理？</h5></div>
@@ -418,9 +408,19 @@ Linux: ~/.config/clash/config.yaml
         XTLS 通过减少握手次数和加密开销，降低延迟，特别适合短连接或高并发场景。结合策略组，可保证连接稳定性和访问速度，适用于移动网络和游戏环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的 QUIC 协议如何降低延迟？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 的脚本功能能实现哪些高级操作？</h5></div>
     <div class="panel-body">
-        QUIC 协议基于 UDP，多路复用和拥塞控制优化，可减少握手延迟和包重传次数。Hysteria2 利用 QUIC 的特性，使高延迟或丢包网络下依然保持低延迟和高稳定性。<hr />    </div>
+        QuantumultX 支持 JavaScript 脚本，可用于请求重写、数据修改、自动签到、广告拦截等功能。用户可通过脚本中心导入开源脚本，极大增强应用的灵活性与自动化能力。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 是否可以代理局域网设备？</h5></div>
+    <div class="panel-body">
+        可以。Netch 支持启用局域网共享功能，使同一网络下的其他设备通过主机的代理访问外网。需确保防火墙允许入站连接，且代理端口在局域网中开放。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow TUN 模式与 SOCKS5 的差别？</h5></div>
+    <div class="panel-body">
+        TUN 模式拦截系统 IP 层流量，实现全局代理；SOCKS5 代理只影响支持代理的应用。TUN 适合全局加速，如游戏、视频和浏览器流量，提高网络稳定性和覆盖范围。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 如何结合策略组实现自动节点切换？</h5></div>
@@ -433,9 +433,9 @@ Linux: ~/.config/clash/config.yaml
         Sing-box 支持根据域名匹配流量，将不同网站或应用流量分配到指定节点。结合策略组，可实现自动切换最优节点，优化访问速度和网络稳定性，提高整体使用体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow TUN 模式与 SOCKS5 的差别？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 在路由器中如何更新节点订阅？</h5></div>
     <div class="panel-body">
-        TUN 模式拦截系统 IP 层流量，实现全局代理；SOCKS5 代理只影响支持代理的应用。TUN 适合全局加速，如游戏、视频和浏览器流量，提高网络稳定性和覆盖范围。<hr />    </div>
+        在 PassWall2 面板中点击“订阅管理”，输入或更新订阅链接后，点击“手动更新”即可自动下载最新节点数据。也可设置定时任务每日自动更新，保持配置最新。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLess 与 Reality 协议可以结合使用吗？</h5></div>
@@ -470,11 +470,11 @@ Linux: ~/.config/clash/config.yaml
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
+                <a href="javascript:;" class="js_to" data-url="https://xc1.luniu8.com/?code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
                     <img src="/assets/website/img/G/xingchen.webp" class="avatar" alt="星辰机场">
                 </a>
                 <dl>
-                    <dt><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://xc1.luniu8.com/?code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
                     <dd>
                         <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p>                    </dd>
                 </dl>
@@ -488,16 +488,16 @@ Linux: ~/.config/clash/config.yaml
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-10-3.htm" title="「10月3日」最高速度20.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月3日」最高速度20.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/shadowrocket-node-2026-9-19.htm" title="「9月19日」最高速度18.4M/S，2025年Hiddify Next每天更新免费节点订阅链接">「9月19日」最高速度18.4M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-v2ray.htm" title="「9月4日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接">「9月4日」最高速度20.2M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-12-node-share.htm" title="「9月12日」最高速度18.5M/S，2025年Hiddify Next每天更新免费节点订阅链接">「9月12日」最高速度18.5M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-9-15.htm" title="「9月15日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「9月15日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-13.htm" title="「10月13日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月13日」最高速度20.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-13.htm" title="「9月13日」最高速度21.8M/S，2025年Hiddify Next每天更新免费节点订阅链接">「9月13日」最高速度21.8M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-20-free-shadowrocket-node.htm" title="「9月20日」最高速度19.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「9月20日」最高速度19.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-23.htm" title="「9月23日」最高速度21.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「9月23日」最高速度21.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-26-clash-node-daily-updates.htm" title="「10月26日」最高速度22.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月26日」最高速度22.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-10-6-free-node-subscribe.htm" title="「10月6日」最高速度18.3M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月6日」最高速度18.3M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-14-free-ssr-subscribe.htm" title="「10月14日」最高速度19.4M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月14日」最高速度19.4M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/shadowrocket-node-2026-10-17.htm" title="「10月17日」最高速度20.5M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月17日」最高速度20.5M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-24-node-share.htm" title="「9月24日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「9月24日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-clash-subscribe-2026-10-7.htm" title="「10月7日」最高速度21.5M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月7日」最高速度21.5M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-v2ray-subscribe-2026-10-23.htm" title="「10月23日」最高速度22.7M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月23日」最高速度22.7M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-9-15.htm" title="「9月15日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「9月15日」最高速度21.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-2-free-ssr-subscribe.htm" title="「10月2日」最高速度20.6M/S，2025年Hiddify Next每天更新免费节点订阅链接">「10月2日」最高速度20.6M/S，2025年Hiddify Next每天更新免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -509,7 +509,7 @@ Linux: ~/.config/clash/config.yaml
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
@@ -537,7 +537,7 @@ Linux: ~/.config/clash/config.yaml
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://xc1.luniu8.com/?code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
                                                 <span class="copytext">
                                 Hiddify Next节点分享站 版权所有 Powered by WordPress
                             </span>
